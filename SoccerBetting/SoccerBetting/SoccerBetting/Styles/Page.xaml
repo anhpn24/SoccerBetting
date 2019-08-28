@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SoccerBetting.Styles.Page"
+             xmlns:style="clr-namespace:SoccerBetting.Styles">
+    <ResourceDictionary.MergedDictionaries>
+        <style:Colors />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="{x:Type NavigationPage}">
+        <Setter Property="BarBackgroundColor" Value="{OnPlatform iOS={StaticResource iOSNavigationBarColor}, Android={StaticResource AndroidNavigationBarColor}}" />
+        <Setter Property="BarTextColor" Value="{OnPlatform iOS={StaticResource iOSNavigationBarTextColor}, Android={StaticResource AndroidNavigationBarTextColor}}" />
+    </Style>
+
+    <Style TargetType="{x:Type ContentPage}" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{StaticResource AppBackgroundColor}" />
+    </Style>
+</ResourceDictionary>

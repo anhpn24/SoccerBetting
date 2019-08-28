@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SoccerBetting.Views.Register"
+             xmlns:page="clr-namespace:SoccerBetting.Views" 
+             xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels"             
+             Title="Đăng ký"
+             xmlns:local="clr-namespace:SoccerBetting.Controls"
+             x:TypeArguments="viewModel:RegisterViewModel"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#d8edff">
+    <ContentPage.Resources>
+        <Thickness x:Key="PageMargin">20,0</Thickness>
+        <Thickness x:Key="PageControl">0,0,0,5</Thickness>
+        <Thickness x:Key="PageControlBtn">0,0,0,10</Thickness>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="{StaticResource PageMargin}">
+            <Image Source="logo.png" HorizontalOptions="CenterAndExpand" HeightRequest="90" WidthRequest="90" Margin="{StaticResource PageControl}"/>
+            <Label Text="Vui lòng nhập thông tin của bạn cho chúng tôi" Margin="{StaticResource PageControlBtn}" HorizontalOptions="CenterAndExpand"/>
+            <local:RoundedEntry Placeholder="Tên đăng nhập"
+                                Margin="{StaticResource PageControl}"
+                                HorizontalOptions="FillAndExpand"
+                                BgColor="White"
+                                HeightRequest="40"
+                                FontSize="14">
+                <local:RoundedEntry.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                </local:RoundedEntry.BorderRadius>
+            </local:RoundedEntry>
+            <local:RoundedEntry Placeholder="Email"
+                                Margin="{StaticResource PageControl}"
+                                HorizontalOptions="FillAndExpand"
+                                BgColor="White"
+                                HeightRequest="40"
+                                FontSize="14">
+                <local:RoundedEntry.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                </local:RoundedEntry.BorderRadius>
+            </local:RoundedEntry>
+            <local:RoundedEntry Placeholder="Số điện thoại"
+                                Margin="{StaticResource PageControl}"
+                                HorizontalOptions="FillAndExpand"
+                                BgColor="White"
+                                HeightRequest="40"
+                                FontSize="14">
+                <local:RoundedEntry.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                </local:RoundedEntry.BorderRadius>
+            </local:RoundedEntry>
+            <local:RoundedEntry Placeholder="Mật khẩu"
+                                IsPassword="True"
+                                Margin="{StaticResource PageControl}"
+                                HorizontalOptions="FillAndExpand"
+                                BgColor="White"
+                                HeightRequest="40"
+                                FontSize="14">
+                <local:RoundedEntry.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                </local:RoundedEntry.BorderRadius>
+            </local:RoundedEntry>
+            <local:RoundedEntry Placeholder="Nhập lại mật khẩu"
+                                IsPassword="True"
+                                Margin="{StaticResource PageControl}"
+                                HorizontalOptions="FillAndExpand"
+                                BgColor="White"
+                                HeightRequest="40"
+                                FontSize="14">
+                <local:RoundedEntry.BorderRadius>
+                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                </local:RoundedEntry.BorderRadius>
+            </local:RoundedEntry>
+
+            <StackLayout Orientation="Horizontal" Margin="{StaticResource PageControl}">
+                <CheckBox x:Name="checkBox" IsChecked="False" Color="#0676ff" VerticalOptions="CenterAndExpand" WidthRequest="25"/>
+                <Label Text="Tôi đồng ý với" VerticalOptions="CenterAndExpand">
+                    <Label.GestureRecognizers>  
+                        <TapGestureRecognizer Tapped="TapGesCheckBoxLicense_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="điều khoản và dịch vụ" TextColor="#0676ff" TextDecorations="Underline" VerticalOptions="CenterAndExpand" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGesLinkSupport_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <Button HeightRequest="40" FontSize="14" Text="Đăng ký" BackgroundColor="#0676ff" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
+            <Button HeightRequest="40" FontSize="14" Text="Đăng nhập" BackgroundColor="white" BorderRadius="20" TextColor="#0676ff" BorderWidth="1" BorderColor="#0676ff" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</page:BaseContentPage>

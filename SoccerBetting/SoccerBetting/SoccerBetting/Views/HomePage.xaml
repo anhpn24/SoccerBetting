@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Trang chủ"
+             xmlns:views="clr-namespace:SoccerBetting.Views"
+             x:Class="SoccerBetting.Views.HomePage"             
+             xmlns:page="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
+             CurrentPageChanged="BottomBarPage_CurrentPageChanged">
+    
+    <views:TeamManager Title="Gần đây" 
+                       IconImageSource="ic_friends.png" 
+                       page:BottomBarPageExtensions.TabColor="#0044ff" />
+
+    <views:TournamentManager Title="Sở thích" 
+                             IconImageSource="ic_favorites.png" 
+                             page:BottomBarPageExtensions.TabColor="#fa0000"/>
+
+    <views:TeamManager Title="Bạn bè" 
+                       IconImageSource="ic_friends.png" 
+                       page:BottomBarPageExtensions.TabColor="#128700"/>
+
+    <views:Setting Title="Thiết lập" 
+                   IconImageSource="ic_setting.png" 
+                   page:BottomBarPageExtensions.TabColor="#b300ff"/>
+</page:BottomBarPage>

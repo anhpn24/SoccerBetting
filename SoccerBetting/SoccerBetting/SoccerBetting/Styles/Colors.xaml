@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SoccerBetting.Styles.Colors">
+    <Color x:Key="AppBackgroundColor">WhiteSmoke</Color>
+    <Color x:Key="iOSNavigationBarColor">WhiteSmoke</Color>
+    <Color x:Key="AndroidNavigationBarColor">#2196F3</Color>
+    <Color x:Key="iOSNavigationBarTextColor">Black</Color>
+    <Color x:Key="AndroidNavigationBarTextColor">White</Color>
+    
+    <!--Shell-->
+    <Color x:Key="ShellBackgroundColor">#455A64</Color>
+    <Color x:Key="ShellForegroundColor">White</Color>
+    <Color x:Key="ShellTitleColor">White</Color>
+    <Color x:Key="ShellDisabledColor">#B4FFFFFF</Color>
+    <Color x:Key="ShellUnselectedColor">#95FFFFFF</Color>
+
+    <!--Shell Color Overide-->
+    <Color x:Key="Shell1BackgroundColor">#039BE6</Color>
+    <Color x:Key="Shell2BackgroundColor">#689F39</Color>
+    <Color x:Key="Shell3BackgroundColor">#ED3B3B</Color>
+    <Color x:Key="Shell4BackgroundColor">#546DFE</Color>
+    <Color x:Key="Shell5BackgroundColor">#96d1ff</Color>
+</ResourceDictionary>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SoccerBetting.Styles.Shell"
+             xmlns:style="clr-namespace:SoccerBetting.Styles">
+    <ResourceDictionary.MergedDictionaries>
+        <style:Colors />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="BaseStyle" TargetType="Element">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource ShellBackgroundColor}" />
+        <Setter Property="Shell.ForegroundColor" Value="{StaticResource ShellForegroundColor}" />
+        <Setter Property="Shell.TitleColor" Value="{StaticResource ShellTitleColor}" />
+        <Setter Property="Shell.DisabledColor" Value="{StaticResource ShellDisabledColor}" />
+        <Setter Property="Shell.UnselectedColor" Value="{StaticResource ShellUnselectedColor}" />
+    </Style>
+
+    <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+
+    <Style x:Key="Shell1" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource Shell1BackgroundColor}" />
+    </Style>
+    <Style x:Key="Shell2" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource Shell2BackgroundColor}" />
+    </Style>
+    <Style x:Key="Shell3" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource Shell3BackgroundColor}" />
+    </Style>
+    <Style x:Key="Shell4" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource Shell4BackgroundColor}" />
+    </Style>
+    <Style x:Key="Shell5" TargetType="Element" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource Shell5BackgroundColor}" />
+    </Style>
+</ResourceDictionary>

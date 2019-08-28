@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SoccerBetting.Views.Login"
+             xmlns:page="clr-namespace:SoccerBetting.Views" 
+             xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
+             x:TypeArguments="viewModel:LoginViewModel"
+             xmlns:local="clr-namespace:SoccerBetting.Controls"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#d8edff">
+    <ContentPage.Resources>
+        <Thickness x:Key="PageMargin">20,0</Thickness>
+        <Thickness x:Key="PageControl">0,0,0,5</Thickness>
+        <Thickness x:Key="PageControlBtn">0,0,0,15</Thickness>
+        <Style x:Key="HeaderLabel" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style x:Key="LinkLabel" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="TextColor" Value="#2688ff" />
+            <Setter Property="TextDecorations" Value="Underline" />
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="{StaticResource PageMargin}">
+            <Image Source="logo.png" HorizontalOptions="CenterAndExpand" HeightRequest="150" WidthRequest="150" Margin="0,0,0,25"/>
+
+            <local:RoundedStackLayout Orientation="Horizontal" 
+                                      BackgroundColor="White"
+                                      HeightRequest="45"
+                                      Margin="{StaticResource PageControl}" 
+                                      Padding="10,0,10,0"                                      
+                                      RoundedCornerRadius="20">
+                <Image Source="user.png" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0"/>
+                <local:CustomEntry Placeholder="Tên đăng nhập" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15" />
+            </local:RoundedStackLayout>
+
+            <local:RoundedStackLayout Orientation="Horizontal" 
+                                      BackgroundColor="White"
+                                      HeightRequest="45"
+                                      Margin="{StaticResource PageControlBtn}" 
+                                      Padding="10,0,10,0"
+                                      RoundedCornerRadius="20">
+                <Image Source="pwd.png" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0"/>
+                <local:CustomEntry Placeholder="Mật khẩu" IsPassword="True" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15"/>
+            </local:RoundedStackLayout>
+
+            <Button Text="Đăng nhập" BackgroundColor="#0676ff" Margin="{StaticResource PageControlBtn}" BorderRadius="20" TextColor="White" Clicked="Button_Clicked" />
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Quên mật khẩu?" Style="{StaticResource LinkLabel}" HorizontalOptions="EndAndExpand" FontSize="15">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGesForgotPwd_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="|" FontAttributes="Bold" />
+                <Label Text="Đăng ký" Style="{StaticResource LinkLabel}" HorizontalOptions="StartAndExpand" FontSize="15">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGesRegister_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>           
+        </StackLayout>
+    </ContentPage.Content>
+</page:BaseContentPage>
