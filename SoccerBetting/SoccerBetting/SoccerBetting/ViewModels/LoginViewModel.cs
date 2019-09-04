@@ -7,6 +7,6 @@ namespace SoccerBetting.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        public Team teams { get; set; } = new Team();
+
     }
 }

@@ -14,30 +14,32 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
-        <DataTemplate x:Key="GridTemplate">
-            <Grid Padding="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Image Grid.RowSpan="2" 
+        <DataTemplate x:Key="CellTemplate">
+            <ViewCell>
+                <Grid Padding="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.RowSpan="2" 
                        Source="{Binding ImageUrl}" 
                        Aspect="AspectFill"
                        HeightRequest="60" 
                        WidthRequest="60" />
-                <Label Grid.Column="1" 
+                    <Label Grid.Column="1" 
                        Text="{Binding Name}" 
                        FontAttributes="Bold" />
-                <Label Grid.Row="1"
+                    <Label Grid.Row="1"
                        Grid.Column="1" 
                        Text="{Binding Location}"
                        FontAttributes="Italic" 
                        VerticalOptions="End" />
-            </Grid>
+                </Grid>
+            </ViewCell>
         </DataTemplate>
     </Application.Resources>
 </Application>

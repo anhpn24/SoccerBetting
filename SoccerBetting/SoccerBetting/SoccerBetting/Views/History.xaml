@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:BaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SoccerBetting.Views.History"
+             xmlns:page="clr-namespace:SoccerBetting.Views" 
+             xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
+             BackgroundImageSource="img_page.jpg"
+             x:TypeArguments="viewModel:HistoryViewModel">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="10">
+                <Label Text="History" FontSize="Large" VerticalOptions="CenterAndExpand" TextColor="White" />
+                <Image Source="back.png" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ImageButton_Clicked" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+
+            <StackLayout BackgroundColor="White">
+                <ListView ItemsSource="{Binding Bears}"
+                        ItemTemplate="{StaticResource CellTemplate}"
+                        SelectionMode="Single" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</page:BaseContentPage>

@@ -10,7 +10,8 @@
              x:TypeArguments="viewModel:LoginViewModel"
              xmlns:local="clr-namespace:SoccerBetting.Controls"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#d8edff">
+             BackgroundImageSource="img_page.jpg">
+    <!--BackgroundColor="#d8edff"-->
     <ContentPage.Resources>
         <Thickness x:Key="PageMargin">20,0</Thickness>
         <Thickness x:Key="PageControl">0,0,0,5</Thickness>
@@ -36,7 +37,7 @@
                                       Padding="10,0,10,0"                                      
                                       RoundedCornerRadius="20">
                 <Image Source="user.png" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0"/>
-                <local:CustomEntry Placeholder="Tên đăng nhập" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15" />
+                <local:CustomEntry Placeholder="Username" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15" />
             </local:RoundedStackLayout>
 
             <local:RoundedStackLayout Orientation="Horizontal" 
@@ -46,19 +47,19 @@
                                       Padding="10,0,10,0"
                                       RoundedCornerRadius="20">
                 <Image Source="pwd.png" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0"/>
-                <local:CustomEntry Placeholder="Mật khẩu" IsPassword="True" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15"/>
+                <local:CustomEntry Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15"/>
             </local:RoundedStackLayout>
 
-            <Button Text="Đăng nhập" BackgroundColor="#0676ff" Margin="{StaticResource PageControlBtn}" BorderRadius="20" TextColor="White" Clicked="Button_Clicked" />
-
+            <Button Text="Login" BackgroundColor="#6b7e9d" Margin="{StaticResource PageControlBtn}" BorderRadius="20" TextColor="White" Clicked="Button_Clicked" />
+            
             <StackLayout Orientation="Horizontal">
-                <Label Text="Quên mật khẩu?" Style="{StaticResource LinkLabel}" HorizontalOptions="EndAndExpand" FontSize="15">
+                <Label Text="Forgot password?" Style="{StaticResource LinkLabel}" HorizontalOptions="EndAndExpand" FontSize="15" TextColor="White">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGesForgotPwd_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="|" FontAttributes="Bold" />
-                <Label Text="Đăng ký" Style="{StaticResource LinkLabel}" HorizontalOptions="StartAndExpand" FontSize="15">
+                <Label Text="|" FontAttributes="Bold" TextColor="White" />
+                <Label Text="Sign up" Style="{StaticResource LinkLabel}" HorizontalOptions="StartAndExpand" FontSize="15" TextColor="White">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGesRegister_Tapped"/>
                     </Label.GestureRecognizers>

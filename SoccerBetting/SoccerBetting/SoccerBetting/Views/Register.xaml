@@ -11,7 +11,8 @@
              xmlns:local="clr-namespace:SoccerBetting.Controls"
              x:TypeArguments="viewModel:RegisterViewModel"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#d8edff">
+             BackgroundImageSource="img_page.jpg">
+    <!--BackgroundColor="#d8edff"-->
     <ContentPage.Resources>
         <Thickness x:Key="PageMargin">20,0</Thickness>
         <Thickness x:Key="PageControl">0,0,0,5</Thickness>
@@ -20,8 +21,8 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Margin="{StaticResource PageMargin}">
             <Image Source="logo.png" HorizontalOptions="CenterAndExpand" HeightRequest="90" WidthRequest="90" Margin="{StaticResource PageControl}"/>
-            <Label Text="Vui lòng nhập thông tin của bạn cho chúng tôi" Margin="{StaticResource PageControlBtn}" HorizontalOptions="CenterAndExpand"/>
-            <local:RoundedEntry Placeholder="Tên đăng nhập"
+            <Label Text="Please enter your infomation" Margin="{StaticResource PageControlBtn}" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            <local:RoundedEntry Placeholder="Username"
                                 Margin="{StaticResource PageControl}"
                                 HorizontalOptions="FillAndExpand"
                                 BgColor="White"
@@ -41,7 +42,7 @@
                     <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
-            <local:RoundedEntry Placeholder="Số điện thoại"
+            <local:RoundedEntry Placeholder="Mobile"
                                 Margin="{StaticResource PageControl}"
                                 HorizontalOptions="FillAndExpand"
                                 BgColor="White"
@@ -51,7 +52,7 @@
                     <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
-            <local:RoundedEntry Placeholder="Mật khẩu"
+            <local:RoundedEntry Placeholder="Password"
                                 IsPassword="True"
                                 Margin="{StaticResource PageControl}"
                                 HorizontalOptions="FillAndExpand"
@@ -62,7 +63,7 @@
                     <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
-            <local:RoundedEntry Placeholder="Nhập lại mật khẩu"
+            <local:RoundedEntry Placeholder="Retype Password"
                                 IsPassword="True"
                                 Margin="{StaticResource PageControl}"
                                 HorizontalOptions="FillAndExpand"
@@ -75,21 +76,21 @@
             </local:RoundedEntry>
 
             <StackLayout Orientation="Horizontal" Margin="{StaticResource PageControl}">
-                <CheckBox x:Name="checkBox" IsChecked="False" Color="#0676ff" VerticalOptions="CenterAndExpand" WidthRequest="25"/>
-                <Label Text="Tôi đồng ý với" VerticalOptions="CenterAndExpand">
+                <CheckBox x:Name="checkBox" IsChecked="False" Color="White" VerticalOptions="CenterAndExpand" WidthRequest="25"/>
+                <Label Text="I accept the" VerticalOptions="CenterAndExpand" TextColor="White">
                     <Label.GestureRecognizers>  
                         <TapGestureRecognizer Tapped="TapGesCheckBoxLicense_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="điều khoản và dịch vụ" TextColor="#0676ff" TextDecorations="Underline" VerticalOptions="CenterAndExpand" >
+                <Label Text="Terms and Conditions" TextColor="#008aa8" TextDecorations="Underline" VerticalOptions="CenterAndExpand" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGesLinkSupport_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
 
-            <Button HeightRequest="40" FontSize="14" Text="Đăng ký" BackgroundColor="#0676ff" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
-            <Button HeightRequest="40" FontSize="14" Text="Đăng nhập" BackgroundColor="white" BorderRadius="20" TextColor="#0676ff" BorderWidth="1" BorderColor="#0676ff" Clicked="Button_Clicked"/>
+            <Button HeightRequest="40" FontSize="14" Text="Sign up" BackgroundColor="#6b7e9d" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
+            <Button HeightRequest="40" FontSize="14" Text="Login" BackgroundColor="white" BorderRadius="20" TextColor="#6b7e9d" BorderColor="#6b7e9d" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </page:BaseContentPage>

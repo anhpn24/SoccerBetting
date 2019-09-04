@@ -7,22 +7,22 @@
              Title="Trang chủ"
              xmlns:views="clr-namespace:SoccerBetting.Views"
              x:Class="SoccerBetting.Views.HomePage"             
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="img_bg.jpg"
              xmlns:page="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
              CurrentPageChanged="BottomBarPage_CurrentPageChanged">
     
-    <views:TeamManager Title="Gần đây" 
-                       IconImageSource="ic_friends.png" 
-                       page:BottomBarPageExtensions.TabColor="#0044ff" />
-
-    <views:TournamentManager Title="Sở thích" 
-                             IconImageSource="ic_favorites.png" 
-                             page:BottomBarPageExtensions.TabColor="#fa0000"/>
-
-    <views:TeamManager Title="Bạn bè" 
-                       IconImageSource="ic_friends.png" 
-                       page:BottomBarPageExtensions.TabColor="#128700"/>
-
-    <views:Setting Title="Thiết lập" 
+    <views:Latest Title="Latest" 
+                   IconImageSource="ic_latest.png" 
+                   page:BottomBarPageExtensions.TabColor="#005078" />
+    <!--#576973-->
+    <views:Match Title="Euro 2020" 
+                 IconImageSource="ic_ball.png" 
+                 page:BottomBarPageExtensions.TabColor="#005078"/>
+    <views:History Title="History" 
+                   IconImageSource="ic_recents.png" 
+                   page:BottomBarPageExtensions.TabColor="#005078"/>
+    <views:Setting Title="Setting" 
                    IconImageSource="ic_setting.png" 
-                   page:BottomBarPageExtensions.TabColor="#b300ff"/>
+                   page:BottomBarPageExtensions.TabColor="#005078"/>
 </page:BottomBarPage>
