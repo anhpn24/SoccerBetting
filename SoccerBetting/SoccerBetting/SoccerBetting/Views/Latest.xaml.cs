@@ -15,7 +15,6 @@ namespace SoccerBetting.Views
         public Latest()
         {
             InitializeComponent();
-            var demo = ViewModel.Response;
         }
     }
 }

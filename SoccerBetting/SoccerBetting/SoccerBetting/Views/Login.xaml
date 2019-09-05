@@ -9,9 +9,8 @@
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
              x:TypeArguments="viewModel:LoginViewModel"
              xmlns:local="clr-namespace:SoccerBetting.Controls"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="img_page.jpg">
-    <!--BackgroundColor="#d8edff"-->
+             NavigationPage.HasNavigationBar="False"             
+             BackgroundColor="#5c5976">
     <ContentPage.Resources>
         <Thickness x:Key="PageMargin">20,0</Thickness>
         <Thickness x:Key="PageControl">0,0,0,5</Thickness>
@@ -50,8 +49,8 @@
                 <local:CustomEntry Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15"/>
             </local:RoundedStackLayout>
 
-            <Button Text="Login" BackgroundColor="#6b7e9d" Margin="{StaticResource PageControlBtn}" BorderRadius="20" TextColor="White" Clicked="Button_Clicked" />
-            
+            <Button Text="Login" BackgroundColor="#8786aa" Margin="{StaticResource PageControlBtn}" BorderRadius="20" TextColor="White" Clicked="Button_Clicked" />
+
             <StackLayout Orientation="Horizontal">
                 <Label Text="Forgot password?" Style="{StaticResource LinkLabel}" HorizontalOptions="EndAndExpand" FontSize="15" TextColor="White">
                     <Label.GestureRecognizers>

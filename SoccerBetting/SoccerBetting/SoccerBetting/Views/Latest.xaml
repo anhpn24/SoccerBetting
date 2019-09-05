@@ -7,7 +7,7 @@
              x:Class="SoccerBetting.Views.Latest"
              xmlns:page="clr-namespace:SoccerBetting.Views"
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
-             BackgroundImageSource="img_bg.jpg"
+             BackgroundColor="#49607f"
              x:TypeArguments="viewModel:LatestViewModel">
     <ContentPage.Content>
         <StackLayout>
@@ -16,9 +16,71 @@
             </StackLayout>
 
             <StackLayout BackgroundColor="White">
-                <ListView ItemsSource="{Binding Bears}"
-                        ItemTemplate="{StaticResource CellTemplate}"
-                        SelectionMode="Single" />
+                <ListView ItemsSource="{Binding ListOfTeam}" 
+                          SelectionMode="Single"
+                          HasUnevenRows="True"
+                          IsGroupingEnabled="True">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell Height="25">
+                                <StackLayout VerticalOptions="FillAndExpand"
+                                             Padding="5"
+                                             BackgroundColor="#3498DB">
+                                    <Label Text="{Binding PlayDate}" TextColor="White" VerticalOptions="Center"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="25,10,10,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="0" >
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                   
+                                    <!--<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="EndAndExpand">
+                                        <Image Source="{Binding Team1.Image}" 
+                                           Aspect="AspectFill"
+                                           HeightRequest="60" 
+                                           WidthRequest="60" />
+                                        <Label Text="{Binding Team1.Name}" 
+                                           FontAttributes="Bold" />
+                                    </StackLayout>-->
+
+                                    <StackLayout Grid.Column="1" >
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="2" >
+                                        <Label Text="{Binding Image}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="3" >
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                    
+                                    <!--<StackLayout Grid.Column="3" Orientation="Horizontal" VerticalOptions="StartAndExpand">
+                                        <Image Source="{Binding Team2.Image}" 
+                                           Aspect="AspectFill"
+                                           HeightRequest="60" 
+                                           WidthRequest="60" />
+                                        <Label Text="{Binding Team2.Name}" 
+                                           FontAttributes="Bold" />
+                                    </StackLayout>-->
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

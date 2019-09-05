@@ -11,8 +11,7 @@
              xmlns:local="clr-namespace:SoccerBetting.Controls"
              x:TypeArguments="viewModel:RegisterViewModel"
              NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="img_page.jpg">
-    <!--BackgroundColor="#d8edff"-->
+             BackgroundColor="#5c5976">
     <ContentPage.Resources>
         <Thickness x:Key="PageMargin">20,0</Thickness>
         <Thickness x:Key="PageControl">0,0,0,5</Thickness>
@@ -82,15 +81,15 @@
                         <TapGestureRecognizer Tapped="TapGesCheckBoxLicense_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Terms and Conditions" TextColor="#008aa8" TextDecorations="Underline" VerticalOptions="CenterAndExpand" >
+                <Label Text="Terms and Conditions" TextColor="#8786aa" TextDecorations="Underline" VerticalOptions="CenterAndExpand" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGesLinkSupport_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
 
-            <Button HeightRequest="40" FontSize="14" Text="Sign up" BackgroundColor="#6b7e9d" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
-            <Button HeightRequest="40" FontSize="14" Text="Login" BackgroundColor="white" BorderRadius="20" TextColor="#6b7e9d" BorderColor="#6b7e9d" Clicked="Button_Clicked"/>
+            <Button HeightRequest="40" FontSize="14" Text="Sign up" BackgroundColor="#8786aa" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
+            <Button HeightRequest="40" FontSize="14" Text="Login" BackgroundColor="white" BorderRadius="20" TextColor="#8786aa" BorderColor="#8786aa" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </page:BaseContentPage>

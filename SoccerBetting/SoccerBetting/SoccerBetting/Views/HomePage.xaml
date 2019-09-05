@@ -9,20 +9,19 @@
              x:Class="SoccerBetting.Views.HomePage"             
              NavigationPage.HasNavigationBar="False"
              BackgroundImageSource="img_bg.jpg"
+             BackgroundColor="#005078"
              xmlns:page="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
              CurrentPageChanged="BottomBarPage_CurrentPageChanged">
-    
     <views:Latest Title="Latest" 
                    IconImageSource="ic_latest.png" 
-                   page:BottomBarPageExtensions.TabColor="#005078" />
-    <!--#576973-->
+                   page:BottomBarPageExtensions.TabColor="#5c5976"/>
     <views:Match Title="Euro 2020" 
                  IconImageSource="ic_ball.png" 
-                 page:BottomBarPageExtensions.TabColor="#005078"/>
+                 page:BottomBarPageExtensions.TabColor="#5c5976"/>
     <views:History Title="History" 
                    IconImageSource="ic_recents.png" 
-                   page:BottomBarPageExtensions.TabColor="#005078"/>
+                   page:BottomBarPageExtensions.TabColor="#5c5976"/>
     <views:Setting Title="Setting" 
                    IconImageSource="ic_setting.png" 
-                   page:BottomBarPageExtensions.TabColor="#005078"/>
+                   page:BottomBarPageExtensions.TabColor="#5c5976"/>
 </page:BottomBarPage>

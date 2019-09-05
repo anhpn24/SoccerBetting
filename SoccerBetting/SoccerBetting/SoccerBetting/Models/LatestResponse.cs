@@ -18,6 +18,6 @@ namespace SoccerBetting.Models
 
     public class RecordList
     {
-        public List<Match> matchs { get; set; }
+        public List<MatchInfo> lstOfMatch { get; set; }
     }
 }
