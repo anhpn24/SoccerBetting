@@ -15,17 +15,16 @@
                 <Image Source="img_header.png" HorizontalOptions="StartAndExpand" HeightRequest="80" />
             </StackLayout>
 
-            <StackLayout BackgroundColor="White" Padding="10">
-                <ListView ItemsSource="{Binding response.recordList.listOfMatch}" 
+            <StackLayout BackgroundColor="White" Padding="5,5,5,0">
+                <ListView ItemsSource="{Binding response.listOfMatch}" 
                           SelectionMode="Single"
                           HasUnevenRows="True"
-                          IsGroupingEnabled="True">
+                          IsGroupingEnabled="True"
+                          SeparatorColor="#ddd">
                     <ListView.GroupHeaderTemplate>
                         <DataTemplate>
-                            <ViewCell Height="25">
-                                <StackLayout VerticalOptions="FillAndExpand"
-                                             Padding="5"
-                                             BackgroundColor="#3498DB">
+                            <ViewCell Height="30">
+                                <StackLayout VerticalOptions="FillAndExpand" Padding="5" BackgroundColor="#ddd">
                                     <Label Text="{Binding DisplayPlayDate}" TextColor="White" VerticalOptions="Center"/>
                                 </StackLayout>
                             </ViewCell>
@@ -34,16 +33,20 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid Padding="25,10,10,10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60" />
+                                    </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
                                         <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="2*" />
-                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="4*" />
                                         <ColumnDefinition Width="3*" />
                                     </Grid.ColumnDefinitions>
 
-                                    <StackLayout Grid.Column="0" >
+                                    <StackLayout Grid.Column="1" BackgroundColor="Red">
                                         <Label Text="{Binding Stadium}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Channel}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
                                    
                                     <!--<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="EndAndExpand">
@@ -55,18 +58,14 @@
                                            FontAttributes="Bold" />
                                     </StackLayout>-->
 
-                                    <StackLayout Grid.Column="1" >
+                                    <StackLayout Grid.Column="2" BackgroundColor="Green">
                                         <Label Text="{Binding Team1.Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
 
-                                    <StackLayout Grid.Column="2" >
+                                    <StackLayout Grid.Column="3" BackgroundColor="Blue">
                                         <Label Text="{Binding Team1.Image}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
 
-                                    <StackLayout Grid.Column="3" >
-                                        <Label Text="{Binding Channel}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
-                                    </StackLayout>
-                                    
                                     <!--<StackLayout Grid.Column="3" Orientation="Horizontal" VerticalOptions="StartAndExpand">
                                         <Image Source="{Binding Team2.Image}" 
                                            Aspect="AspectFill"

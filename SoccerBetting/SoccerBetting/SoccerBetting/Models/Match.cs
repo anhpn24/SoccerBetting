@@ -50,112 +50,28 @@ namespace SoccerBetting.Models
         /// </summary>
         public int? BetPoint { get; set; }
 
+        /// <summary>
+        /// 0: Da dien ra
+        /// 1: Dang dien ra
+        /// 2: Chua dien ra
+        /// </summary>
+        public int Status { get; set; }
+
         #region Display
-       
-        public string DisplayScore1
+
+        public string DisplayScore
         {
             get
             {
-                if (this.ScoreTeam1 != null)
+                if (this.ScoreTeam1 != null || this.ScoreTeam1 != null)
                 {
-                    return this.ScoreTeam1.ToString();
+                    return this.ScoreTeam1.ToString() + " - " + this.ScoreTeam2.ToString();
                 }
 
-                return "--";
+                return string.Empty;
             }
-        }
-
-        public string DisplayScore2
-        {
-            get
-            {
-                if (this.ScoreTeam2 != null)
-                {
-                    return this.ScoreTeam2.ToString();
-                }
-
-                return "--";
-            }
-        }                
-
-        public Color DisplayResultBetting
-        {
-            get
-            {
-                if (TypeGuess == null)
-                {
-                    return Color.Gray;
-                }
-
-                if (ScoreTeam1 == null || ScoreTeam2 == null)
-                {
-                    return Color.Gray;
-                }
-
-                if ((ScoreTeam1 > ScoreTeam2 && TypeGuess == (int)TypeGuessEnum.Team1Win) ||
-                    (ScoreTeam1 < ScoreTeam2 && TypeGuess == (int)TypeGuessEnum.Team2Win) ||
-                    (ScoreTeam1 == ScoreTeam2 && TypeGuess == (int)TypeGuessEnum.Draw))
-                {
-                    return Color.Green;
-                }
-                else
-                {
-                    return Color.Red;
-                }
-            }
-        }
-
-        public string DisplayAmount
-        {
-            get
-            {
-                if (TypeGuess == null)
-                {
-                    return "--";
-                }
-
-                if (ScoreTeam1 == null || ScoreTeam2 == null)
-                {
-                    return "--";
-                }
-
-                if ((ScoreTeam1 > ScoreTeam2 && TypeGuess == (int)TypeGuessEnum.Team1Win) ||
-                    (ScoreTeam1 < ScoreTeam2 && TypeGuess == (int)TypeGuessEnum.Team2Win) ||
-                    (ScoreTeam1 == ScoreTeam2 && TypeGuess == (int)TypeGuessEnum.Draw))
-                {
-                    return "+" + (Convert.ToInt32(BetPoint) * 2).ToString();
-                }
-                else
-                {
-                    return "-" + Convert.ToInt32(BetPoint).ToString();
-                }
-            }
-        }
-
-        public string DisplayUserBet
-        {
-            get
-            {
-                if (TypeGuess == null)
-                {
-                    return "";
-                }
-
-                if (TypeGuess == 0)
-                {
-                    return Team1.Name + "win";
-                }
-                else if (TypeGuess == 2)
-                {
-                    return Team1.Name + "win";
-                }
-                else
-                {
-                    return "Draw";
-                }
-            }
-        }
-
+        }              
+   
         #endregion
     }
 
@@ -164,5 +80,12 @@ namespace SoccerBetting.Models
         Team1Win = 0,
         Draw = 1,
         Team2Win = 2,
+    }
+
+    public enum StatusMatchEnum
+    {
+        Finished = 0,
+        IsKicking = 1,
+        NotStart = 2
     }
 }

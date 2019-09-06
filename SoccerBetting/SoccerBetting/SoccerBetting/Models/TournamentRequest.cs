@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SoccerBetting.Models
 {
-    class MatchRequest
+    public class TournamentRequest
     {
     }
 }

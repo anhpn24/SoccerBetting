@@ -12,7 +12,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal" Margin="10">
-                <Label Text="History" FontSize="Large" VerticalOptions="CenterAndExpand" TextColor="White" />
+                <Label Text="History" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="22" />
                 <Image Source="back.png" HeightRequest="30" WidthRequest="30" VerticalOptions="CenterAndExpand">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="ImageButton_Clicked" />
@@ -21,7 +21,7 @@
             </StackLayout>
 
             <StackLayout BackgroundColor="White">
-                <ListView ItemsSource="{Binding Bears}"
+                <ListView ItemsSource="{Binding News}"
                         ItemTemplate="{StaticResource CellTemplate}"
                         SelectionMode="Single" />
             </StackLayout>
