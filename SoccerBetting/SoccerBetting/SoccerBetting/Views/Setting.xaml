@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             BackgroundImageSource="img_bg.jpg"
+             BackgroundImageSource="setting_bg.jpg"
              xmlns:page="clr-namespace:SoccerBetting.Views"
              x:Class="SoccerBetting.Views.Setting"
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 

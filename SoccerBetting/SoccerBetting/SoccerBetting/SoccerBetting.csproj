@@ -22,13 +22,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\TournamentInfo.xaml.cs">
+      <DependentUpon>TournamentInfo.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\History.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Latest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Match.xaml">
+    <EmbeddedResource Update="Views\TournamentInfo.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Setting.xaml">

@@ -4,31 +4,28 @@ using System.Text;
 
 namespace SoccerBetting.Models
 {
-    public class MatchList
+    public class MatchList : List<Match>
     {
         /// <summary>
         /// Ngay dien ra tran dau
         /// </summary>
         public DateTime PlayDate { get; set; }
 
+        /// <summary>
+        /// Thông tin các trận đấu
+        /// </summary>
+        public List<Match> Matchs => this;
+
         #region Display
         public string DisplayPlayDate
         {
             get
             {
-                return this.PlayDate.ToString("ddMMyyyy");
+                return this.PlayDate.DayOfWeek.ToString() + ", "+ this.PlayDate.ToString("dd/MM/yyyy");
             }
         }
 
-        public string PlayDayInWeek
-        {
-            get
-            {
-                return this.PlayDate.DayOfWeek.ToString();
-            }
-        }
-
-        public string PlayTime
+        public string DisplayMatchTime
         {
             get
             {

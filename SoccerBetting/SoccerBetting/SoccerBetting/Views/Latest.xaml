@@ -7,16 +7,16 @@
              x:Class="SoccerBetting.Views.Latest"
              xmlns:page="clr-namespace:SoccerBetting.Views"
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
-             BackgroundColor="#49607f"
+             BackgroundImageSource="title_bg.jpg"
              x:TypeArguments="viewModel:LatestViewModel">
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Margin="10">
-                <Image Source="img_header.png" HorizontalOptions="StartAndExpand" HeightRequest="100" />
+        <StackLayout >
+            <StackLayout Padding="10">
+                <Image Source="img_header.png" HorizontalOptions="StartAndExpand" HeightRequest="80" />
             </StackLayout>
 
-            <StackLayout BackgroundColor="White">
-                <ListView ItemsSource="{Binding ListOfTeam}" 
+            <StackLayout BackgroundColor="White" Padding="10">
+                <ListView ItemsSource="{Binding response.recordList.listOfMatch}" 
                           SelectionMode="Single"
                           HasUnevenRows="True"
                           IsGroupingEnabled="True">
@@ -26,7 +26,7 @@
                                 <StackLayout VerticalOptions="FillAndExpand"
                                              Padding="5"
                                              BackgroundColor="#3498DB">
-                                    <Label Text="{Binding PlayDate}" TextColor="White" VerticalOptions="Center"/>
+                                    <Label Text="{Binding DisplayPlayDate}" TextColor="White" VerticalOptions="Center"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -43,7 +43,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Column="0" >
-                                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Stadium}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
                                    
                                     <!--<StackLayout Grid.Column="0" Orientation="Horizontal" VerticalOptions="EndAndExpand">
@@ -56,15 +56,15 @@
                                     </StackLayout>-->
 
                                     <StackLayout Grid.Column="1" >
-                                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Team1.Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
 
                                     <StackLayout Grid.Column="2" >
-                                        <Label Text="{Binding Image}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Team1.Image}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
 
                                     <StackLayout Grid.Column="3" >
-                                        <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Channel}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
                                     </StackLayout>
                                     
                                     <!--<StackLayout Grid.Column="3" Orientation="Horizontal" VerticalOptions="StartAndExpand">

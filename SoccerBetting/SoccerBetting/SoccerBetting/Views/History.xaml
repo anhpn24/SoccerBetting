@@ -7,7 +7,7 @@
              x:Class="SoccerBetting.Views.History"
              xmlns:page="clr-namespace:SoccerBetting.Views" 
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
-             BackgroundImageSource="img_page.jpg"
+             BackgroundImageSource="title_bg.jpg"
              x:TypeArguments="viewModel:HistoryViewModel">
     <ContentPage.Content>
         <StackLayout>

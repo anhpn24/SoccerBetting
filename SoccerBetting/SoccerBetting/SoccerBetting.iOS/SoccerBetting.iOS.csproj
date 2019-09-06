@@ -293,9 +293,6 @@
     <BundleResource Include="Resources\ic_setting.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\logo2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ic_ball.png" />
   </ItemGroup>
   <ItemGroup>
@@ -303,12 +300,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_ball%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\img_bg.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\img_page.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_latest.png" />
@@ -321,5 +312,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\img_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\title_bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\setting_bg.jpg" />
   </ItemGroup>
 </Project>

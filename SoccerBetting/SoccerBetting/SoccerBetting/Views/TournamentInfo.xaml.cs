@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoccerBetting.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,9 @@ using Xamarin.Forms.Xaml;
 
 namespace SoccerBetting.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TeamManager : ContentPage
+    public partial class TournamentInfo : BaseContentPage<TournamentViewModel>
     {
-        public TeamManager()
+        public TournamentInfo()
         {
             InitializeComponent();
         }

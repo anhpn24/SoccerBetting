@@ -5,11 +5,11 @@ using System.Text;
 
 namespace SoccerBetting.ViewModels
 {
-    public class MatchViewModel : BaseViewModel
+    public class TournamentViewModel : BaseViewModel
     {
         public IList<Animal> Bears { get; set; }
 
-        public MatchViewModel()
+        public TournamentViewModel()
         {
             Bears = new List<Animal>();
 

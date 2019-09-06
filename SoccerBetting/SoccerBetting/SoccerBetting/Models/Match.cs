@@ -5,13 +5,8 @@ using System.Text;
 
 namespace SoccerBetting.Models
 {
-    public class MatchInfo
+    public class Match
     {
-        /// <summary>
-        /// Ngay dien ra tran dau
-        /// </summary>
-        public DateTime PlayDate { get; set; }
-
         /// <summary>
         /// Thong tin doi 1
         /// </summary>
@@ -56,31 +51,7 @@ namespace SoccerBetting.Models
         public int? BetPoint { get; set; }
 
         #region Display
-
-        public string DisplayPlayDate
-        {
-            get
-            {
-                return this.PlayDate.ToString("ddMMyyyy");
-            }
-        }
-
-        public string PlayDayInWeek
-        {
-            get
-            {
-                return this.PlayDate.DayOfWeek.ToString();
-            }
-        }
-
-        public string PlayTime
-        {
-            get
-            {
-                return this.PlayDate.ToString("HH:mm");
-            }
-        }
-
+       
         public string DisplayScore1
         {
             get
