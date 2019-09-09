@@ -8,6 +8,10 @@ namespace SoccerBetting.Models
     public class Match
     {
         /// <summary>
+        /// Match Id
+        /// </summary>
+        public int Id { get; set; }
+        /// <summary>
         /// Thong tin doi 1
         /// </summary>
         public Team Team1 { get; set; } = new Team();
@@ -26,6 +30,11 @@ namespace SoccerBetting.Models
         /// Kenh xem truc tuyen tran dau
         /// </summary>
         public string Channel { get; set; }
+
+        /// <summary>
+        /// Thoi gian bat dau tran dau
+        /// </summary>
+        public TimeSpan StartTime { get; set; }
 
         /// <summary>
         /// So ban thang cua doi 1
@@ -58,20 +67,15 @@ namespace SoccerBetting.Models
         public int Status { get; set; }
 
         #region Display
-
-        public string DisplayScore
+        
+        public string DisplayTime
         {
             get
             {
-                if (this.ScoreTeam1 != null || this.ScoreTeam1 != null)
-                {
-                    return this.ScoreTeam1.ToString() + " - " + this.ScoreTeam2.ToString();
-                }
-
-                return string.Empty;
+                return this.StartTime.ToString(@"hh\:mm");
             }
-        }              
-   
+        }
+
         #endregion
     }
 

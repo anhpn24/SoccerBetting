@@ -89,7 +89,7 @@
             </StackLayout>
 
             <Button HeightRequest="40" FontSize="14" Text="Sign up" BackgroundColor="#8786aa" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
-            <Button HeightRequest="40" FontSize="14" Text="Login" BackgroundColor="white" BorderRadius="20" TextColor="#8786aa" BorderColor="#8786aa" Clicked="Button_Clicked"/>
+            <Button HeightRequest="40" FontSize="14" Text="Login" BackgroundColor="Transparent" BorderRadius="20" TextColor="White" BorderColor="White" BorderWidth="1" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </page:BaseContentPage>

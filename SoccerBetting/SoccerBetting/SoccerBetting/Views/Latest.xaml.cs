@@ -1,4 +1,5 @@
-﻿using SoccerBetting.ViewModels;
+﻿using SoccerBetting.Models;
+using SoccerBetting.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,17 @@ namespace SoccerBetting.Views
         public Latest()
         {
             InitializeComponent();
+        }
+
+        async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                await Navigation.PushAsync(new DetailMatch()
+                {
+                    BindingContext = e.SelectedItem as Match
+                });
+            }
         }
     }
 }

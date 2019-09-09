@@ -64,7 +64,7 @@ namespace SoccerBetting.Droid.CustomRenderer
             {
                 var rectBottomRight = new RectF(Width - radius, Height - radius, Width, Height);
                 canvas.DrawRect(rectBottomRight, paint);
-            }
+            }           
         }
     }
 }

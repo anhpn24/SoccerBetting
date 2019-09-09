@@ -24,14 +24,6 @@ namespace SoccerBetting.Models
                 return this.PlayDate.DayOfWeek.ToString() + ", "+ this.PlayDate.ToString("dd/MM/yyyy");
             }
         }
-
-        public string DisplayMatchTime
-        {
-            get
-            {
-                return this.PlayDate.ToString("HH:mm");
-            }
-        }
         #endregion
 
     }

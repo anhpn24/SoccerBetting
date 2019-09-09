@@ -319,4 +319,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\setting_bg.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_kplus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_espn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\img_bg.jpg" />
+  </ItemGroup>
 </Project>

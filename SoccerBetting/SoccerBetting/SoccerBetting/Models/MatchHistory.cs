@@ -33,6 +33,11 @@ namespace SoccerBetting.Models
         public string Channel { get; set; }
 
         /// <summary>
+        /// Thoi gian bat dau tran dau
+        /// </summary>
+        public TimeSpan StartTime { get; set; }
+
+        /// <summary>
         /// So ban thang cua doi 1
         /// </summary>
         public int? ScoreTeam1 { get; set; }
@@ -63,6 +68,22 @@ namespace SoccerBetting.Models
         public int Status { get; set; }
 
         #region Display
+
+        public string DisplayPlayDate
+        {
+            get
+            {
+                return this.PlayDate.DayOfWeek.ToString() + ", " + this.PlayDate.ToString("dd/MM/yyyy");
+            }
+        }
+
+        public string DisplayTime
+        {
+            get
+            {
+                return this.StartTime.ToString(@"hh\:mm");
+            }
+        }
 
         public string DisplayScore
         {
