@@ -7,63 +7,130 @@
              xmlns:page="clr-namespace:SoccerBetting.Views" 
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
              x:TypeArguments="viewModel:TournamentViewModel"   
-             BackgroundImageSource="title_bg.jpg"
+             BackgroundColor="#a2b9de"
              x:Class="SoccerBetting.Views.TournamentInfo">
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Margin="10">
-                <Image Source="img_header.png" HorizontalOptions="StartAndExpand" HeightRequest="80" />
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Margin="10">
+                    <Image Source="img_header.png" HorizontalOptions="StartAndExpand" HeightRequest="80" />
+                </StackLayout>
+
+                <Label Text="Result Table" Margin="10,0,10,10" FontSize="30" TextColor="Black" />
+                <StackLayout BackgroundColor="White" HeightRequest="275" Padding="5">
+                    <ListView ItemsSource="{Binding response.TblResult}" SelectionMode="Single" HasUnevenRows="True">
+                        <ListView.Header>
+                            <Grid BackgroundColor="#0084A4">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1.5*" />
+                                    <ColumnDefinition Width="1.5*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Pos" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                <Label Text="Team" Grid.Column="1" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                <Label Text="P" Grid.Column="2" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                <Label Text="GD" Grid.Column="3" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                <Label Text="Pts" Grid.Column="4" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="60" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="5*" />
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1.5*" />
+                                            <ColumnDefinition Width="1.5*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout Grid.Column="0">
+                                            <Label Text="{Binding Position}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Column="1">
+                                            <Label Text="{Binding Team.Name}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Column="2">
+                                            <Label Text="{Binding MatchKicked}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="4">
+                                            <Label Text="{Binding WLIndex}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="3">
+                                            <Label Text="{Binding Point}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout BackgroundColor="White" HeightRequest="30">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="More" FontAttributes="Bold" FontSize="17" TextColor="Black"/>
+                        <Image Source="ic_arrow.png" HeightRequest="10" WidthRequest="10" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Label Text="News" Margin="10,0,10,10" FontSize="30" TextColor="Black" />
+                <StackLayout BackgroundColor="White" HeightRequest="300">
+                    <ListView ItemsSource="{Binding News}"
+                        SelectionMode="Single" 
+                        HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image Grid.RowSpan="2" 
+                                               Source="{Binding Image}" 
+                                               Aspect="AspectFill"
+                                               HeightRequest="60" 
+                                               WidthRequest="60" />
+                                        <Label Grid.Column="1" 
+                                               Text="{Binding Title}" 
+                                               FontAttributes="Bold" 
+                                               MaxLines="1"/>
+                                        <Label Grid.Row="1"
+                                               Grid.Column="1" 
+                                               Text="{Binding Description}"
+                                               FontAttributes="Italic" 
+                                               VerticalOptions="End" 
+                                               MaxLines="3"/>     
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <StackLayout BackgroundColor="White" HeightRequest="30">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                        <Label Text="More" FontAttributes="Bold" FontSize="17" TextColor="Black"/>
+                        <Image Source="ic_arrow.png" HeightRequest="10" WidthRequest="10" />
+                    </StackLayout>
+                </StackLayout>
+
             </StackLayout>
-
-            <Label Text="Result Table" Margin="10" TextColor="White" FontSize="22" />
-            <StackLayout BackgroundColor="White">
-                <ListView ItemsSource="{Binding response.ListOfTblResult}"
-                        SelectionMode="Single">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="3*" />
-                                        <ColumnDefinition Width="2*" />
-                                        <ColumnDefinition Width="2*" />
-                                        <ColumnDefinition Width="2*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <StackLayout Grid.Column="0" BackgroundColor="Red">
-                                        <Label Text="{Binding Position}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
-                                    </StackLayout>
-
-                                    <StackLayout Grid.Column="1" BackgroundColor="Green">
-                                        <Label Text="{Binding Team.Name}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
-                                    </StackLayout>
-
-                                    <StackLayout Grid.Column="2" BackgroundColor="Blue">
-                                        <Label Text="{Binding MatchKicked}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
-                                    </StackLayout>
-                                    <StackLayout Grid.Column="3" BackgroundColor="Blue">
-                                        <Label Text="{Binding Point}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
-                                    </StackLayout>
-                                    <StackLayout Grid.Column="4" BackgroundColor="Blue">
-                                        <Label Text="{Binding WLIndex}" FontAttributes="Bold" VerticalOptions="CenterAndExpand"/>
-                                    </StackLayout>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-
-            <Label Text="News" Margin="10" TextColor="White" FontSize="22" />
-            <StackLayout BackgroundColor="White">
-                <ListView ItemsSource="{Binding News}"
-                        ItemTemplate="{StaticResource CellTemplate}"
-                        SelectionMode="Single" />
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </page:BaseContentPage>

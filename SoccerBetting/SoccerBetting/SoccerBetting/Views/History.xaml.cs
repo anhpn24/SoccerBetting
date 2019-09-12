@@ -1,4 +1,5 @@
-﻿using SoccerBetting.ViewModels;
+﻿using SoccerBetting.Models;
+using SoccerBetting.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,27 @@ namespace SoccerBetting.Views
 
         async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            string action = await DisplayActionSheet("ActionSheet: Send to?", "Cancel", null, "Email", "Twitter", "Facebook");
+            string action = await DisplayActionSheet("ActionSheet: Send to?", "Cancel", null, "All", "Match Played", "Match not play");
+        }
+
+        async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                var itemData = e.SelectedItem as MatchHistory;
+
+                if (itemData.Status == (int)StatusMatchEnum.Finished)
+                {
+                    await DisplayAlert("Alert", "Match Finished. You not continue betting", "OK");
+                }
+                else
+                {
+                    await Navigation.PushAsync(new DetailMatch()
+                    {
+                        BindingContext = e.SelectedItem as MatchHistory
+                    });
+                }                
+            }
         }
     }
 }

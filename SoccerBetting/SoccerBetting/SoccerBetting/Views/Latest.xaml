@@ -7,10 +7,11 @@
              x:Class="SoccerBetting.Views.Latest"
              xmlns:page="clr-namespace:SoccerBetting.Views"
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
-             xmlns:local="clr-namespace:SoccerBetting.Controls"
-             BackgroundImageSource="title_bg.jpg"
+             xmlns:local="clr-namespace:SoccerBetting.Controls"             
              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#a2b9de"
              x:TypeArguments="viewModel:LatestViewModel">
+    <!--BackgroundImageSource="title_bg.jpg"-->
     <ContentPage.Content>
         <StackLayout >
             <StackLayout Padding="10">
@@ -27,8 +28,8 @@
                     <ListView.GroupHeaderTemplate>
                         <DataTemplate>
                             <ViewCell Height="30">
-                                <StackLayout VerticalOptions="FillAndExpand" Padding="5" BackgroundColor="#5c5976">
-                                    <Label Text="{Binding DisplayPlayDate}" TextColor="White" VerticalOptions="Center"/>
+                                <StackLayout VerticalOptions="FillAndExpand" Padding="5" BackgroundColor="#0084A4">
+                                    <Label Text="{Binding DisplayPlayDate}" TextColor="Black" VerticalOptions="Center" FontAttributes="Bold"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -50,17 +51,17 @@
                                     </Grid.ColumnDefinitions>
 
                                     <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
-                                        <Label Text="{Binding Team1.Name}" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Team1.ShortName}" VerticalOptions="CenterAndExpand" FontSize="20" FontAttributes="Bold"/>
                                         <Image Source="{Binding Team1.Image}" HeightRequest="50" WidthRequest="50"/>
                                     </StackLayout>
 
                                     <StackLayout Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                                        <Label Text="{Binding DisplayTime}" FontAttributes="Bold" FontSize="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding DisplayTime}" FontSize="17" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                     </StackLayout>
 
                                     <StackLayout Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
                                         <Image Source="{Binding Team2.Image}" HeightRequest="50" WidthRequest="50"/>
-                                        <Label Text="{Binding Team2.Name}" VerticalOptions="CenterAndExpand"/>
+                                        <Label Text="{Binding Team2.ShortName}" VerticalOptions="CenterAndExpand" FontSize="20" FontAttributes="Bold"/>
                                     </StackLayout>
 
                                     <!--<StackLayout Grid.Row="1" Grid.Column="2" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">

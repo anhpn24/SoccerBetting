@@ -73,7 +73,7 @@ namespace SoccerBetting.Models
         {
             get
             {
-                return this.PlayDate.DayOfWeek.ToString() + ", " + this.PlayDate.ToString("dd/MM/yyyy");
+                return this.PlayDate.ToString("dd/MM/yyyy");
             }
         }
 
@@ -94,7 +94,7 @@ namespace SoccerBetting.Models
                     return this.ScoreTeam1.ToString() + " - " + this.ScoreTeam2.ToString();
                 }
 
-                return this.PlayDate.ToString("HH:mm");
+                return this.PlayDate.ToString(@"hh\:mm");
             }
         }
 
@@ -104,12 +104,12 @@ namespace SoccerBetting.Models
             {
                 if (TypeGuess == null)
                 {
-                    return Color.Gray;
+                    return Color.LightGray;
                 }
 
                 if (ScoreTeam1 == null || ScoreTeam2 == null)
                 {
-                    return Color.Gray;
+                    return Color.LightGray;
                 }
 
                 if ((ScoreTeam1 > ScoreTeam2 && TypeGuess == (int)TypeGuessEnum.Team1Win) ||
@@ -168,11 +168,11 @@ namespace SoccerBetting.Models
 
                 if (TypeGuess == 0)
                 {
-                    return Team1.Name + "win";
+                    return Team1.Name + " win";
                 }
                 else if (TypeGuess == 2)
                 {
-                    return Team1.Name + "win";
+                    return Team2.Name + " win";
                 }
                 else
                 {

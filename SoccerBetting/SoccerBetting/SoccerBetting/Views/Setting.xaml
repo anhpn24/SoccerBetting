@@ -4,47 +4,45 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             BackgroundImageSource="setting_bg.jpg"
              xmlns:page="clr-namespace:SoccerBetting.Views"
              x:Class="SoccerBetting.Views.Setting"
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
+             xmlns:local="clr-namespace:SoccerBetting.Controls"
+             BackgroundColor="#a2b9de"                      
              x:TypeArguments="viewModel:SettingViewModel">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Setting" Margin="10" TextColor="White" FontSize="22" />
-            <StackLayout Margin="10" BackgroundColor="White">
-                <Grid Padding="10" BindingContext="{Binding userInfo}">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <Image Grid.RowSpan="2" 
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Setting" Margin="10" TextColor="Black" FontSize="30" />
+                <local:RoundedStackLayout Margin="10,0,10,10"
+                                      Padding="10,0,10,0"                                      
+                                      RoundedCornerRadius="10"
+                                      BackgroundColor="White">
+                    <Grid Padding="10" BindingContext="{Binding userInfo}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.RowSpan="3" 
                        Source="{Binding Image}" 
-                       Aspect="AspectFill"
-                       HeightRequest="120" 
-                       WidthRequest="120" />
-                    <Label Grid.Column="1" 
-                       Text="{Binding Name}" 
-                       FontAttributes="Bold" />
-                    <Label Grid.Row="1"
-                       Grid.Column="1" 
-                       Text="{Binding Email}"
-                       FontAttributes="Italic" 
-                       VerticalOptions="End" />
-                    <Label Grid.Row="1"
-                       Grid.Column="1" 
-                       Text="{Binding Point, StringFormat='Bet Point: {0:N}'}"
-                       FontAttributes="Italic" 
-                       VerticalOptions="End" />
-                </Grid>
+                       HeightRequest="60" 
+                       WidthRequest="60" />
+                        <StackLayout Grid.Column="1" Padding="20,0,0,0">
+                            <Label Grid.Row="0" Text="{Binding UserName}" FontAttributes="Bold" />
+                            <Label Grid.Row="1" Text="{Binding Email}" FontAttributes="Italic" VerticalOptions="End" />
+                            <Label Grid.Row="2" Text="{Binding Point, StringFormat='Bet Point: {0}'}" FontAttributes="Italic" VerticalOptions="End" />
+                        </StackLayout>
+                    </Grid>
+                </local:RoundedStackLayout>
+                <StackLayout Margin="10,0">
+                    <Button BackgroundColor="White" BorderRadius="10" Text="Đăng xuất" Clicked="Button_Clicked" />
+                </StackLayout>
             </StackLayout>
-            <StackLayout Margin="10">
-                <Button Text="Đăng xuất" Clicked="Button_Clicked" />
-            </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </page:BaseContentPage>
