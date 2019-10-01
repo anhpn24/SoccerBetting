@@ -20,76 +20,81 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Margin="{StaticResource PageMargin}">
             <Image Source="logo.png" HorizontalOptions="CenterAndExpand" HeightRequest="90" WidthRequest="90" Margin="{StaticResource PageControl}"/>
-            <Label Text="Please enter your infomation" Margin="{StaticResource PageControlBtn}" HorizontalOptions="CenterAndExpand" TextColor="White"/>
+            <Label Style="{StaticResource FontBasicEntry}" Text="Please enter your infomation" Margin="{StaticResource PageControlBtn}" HorizontalOptions="CenterAndExpand" TextColor="White"/>
             <local:RoundedEntry Placeholder="Username"
                                 Margin="{StaticResource PageControl}"
+                                Style="{StaticResource FontBasicEntry}"
                                 HorizontalOptions="FillAndExpand"
                                 BgColor="White"
                                 HeightRequest="40"
                                 FontSize="14">
                 <local:RoundedEntry.BorderRadius>
-                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                    <OnPlatform x:TypeArguments="x:Double" iOS="20" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
             <local:RoundedEntry Placeholder="Email"
                                 Margin="{StaticResource PageControl}"
+                                Style="{StaticResource FontBasicEntry}"
                                 HorizontalOptions="FillAndExpand"
                                 BgColor="White"
                                 HeightRequest="40"
                                 FontSize="14">
                 <local:RoundedEntry.BorderRadius>
-                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                    <OnPlatform x:TypeArguments="x:Double" iOS="20" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
             <local:RoundedEntry Placeholder="Mobile"
                                 Margin="{StaticResource PageControl}"
+                                Style="{StaticResource FontBasicEntry}"
                                 HorizontalOptions="FillAndExpand"
                                 BgColor="White"
                                 HeightRequest="40"
                                 FontSize="14">
                 <local:RoundedEntry.BorderRadius>
-                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                    <OnPlatform x:TypeArguments="x:Double" iOS="20" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
             <local:RoundedEntry Placeholder="Password"
                                 IsPassword="True"
                                 Margin="{StaticResource PageControl}"
+                                Style="{StaticResource FontBasicEntry}"
                                 HorizontalOptions="FillAndExpand"
                                 BgColor="White"
                                 HeightRequest="40"
                                 FontSize="14">
                 <local:RoundedEntry.BorderRadius>
-                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                    <OnPlatform x:TypeArguments="x:Double" iOS="20" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
             <local:RoundedEntry Placeholder="Retype Password"
                                 IsPassword="True"
                                 Margin="{StaticResource PageControl}"
+                                Style="{StaticResource FontBasicEntry}"
                                 HorizontalOptions="FillAndExpand"
                                 BgColor="White"
                                 HeightRequest="40"
                                 FontSize="14">
                 <local:RoundedEntry.BorderRadius>
-                    <OnPlatform x:TypeArguments="x:Double" iOS="23" Android="50"></OnPlatform>                    
+                    <OnPlatform x:TypeArguments="x:Double" iOS="20" Android="50"></OnPlatform>                    
                 </local:RoundedEntry.BorderRadius>
             </local:RoundedEntry>
 
             <StackLayout Orientation="Horizontal" Margin="{StaticResource PageControl}">
                 <CheckBox x:Name="checkBox" IsChecked="False" Color="White" VerticalOptions="CenterAndExpand" WidthRequest="25"/>
-                <Label Text="I accept the" VerticalOptions="CenterAndExpand" TextColor="White">
+                <Label Text="I accept the" VerticalOptions="CenterAndExpand" TextColor="White" Style="{StaticResource FontBasic}">
                     <Label.GestureRecognizers>  
                         <TapGestureRecognizer Tapped="TapGesCheckBoxLicense_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
-                <Label Text="Terms and Conditions" TextColor="#8786aa" TextDecorations="Underline" VerticalOptions="CenterAndExpand" >
+                <Label Text="Terms and Conditions" TextColor="#8786aa" TextDecorations="Underline" VerticalOptions="CenterAndExpand" Style="{StaticResource FontBasic}">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGesLinkSupport_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
 
-            <Button HeightRequest="40" FontSize="14" Text="Sign up" BackgroundColor="#8786aa" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
-            <Button HeightRequest="40" FontSize="14" Text="Login" BackgroundColor="Transparent" BorderRadius="20" TextColor="White" BorderColor="White" BorderWidth="1" Clicked="Button_Clicked"/>
+            <Button Style="{StaticResource FontBasicBtn}" HeightRequest="40" FontSize="14" Text="Sign up" BackgroundColor="#8786aa" BorderRadius="20" TextColor="White" Margin="{StaticResource PageControl}"/>
+            <Button Style="{StaticResource FontBasicBtn}" HeightRequest="40" FontSize="14" Text="Login" BackgroundColor="Transparent" BorderRadius="20" TextColor="White" BorderColor="White" BorderWidth="1" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </page:BaseContentPage>

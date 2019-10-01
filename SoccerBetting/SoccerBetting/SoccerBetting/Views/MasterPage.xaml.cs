@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 
 namespace SoccerBetting.Views
 {
-    public partial class HomePage : BottomBarPage
+    public partial class MasterPage : BottomBarPage
     {
-        public HomePage()
+        public MasterPage()
         {
             InitializeComponent();
             NavigationPage.SetHasBackButton(this, false);

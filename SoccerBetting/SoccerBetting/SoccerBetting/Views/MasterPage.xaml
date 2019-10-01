@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<page:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:page="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
+             mc:Ignorable="d"
+             xmlns:views="clr-namespace:SoccerBetting.Views"
+             x:Class="SoccerBetting.Views.MasterPage"             
+             NavigationPage.HasNavigationBar="False"                           
+             CurrentPageChanged="BottomBarPage_CurrentPageChanged">
+    <views:Home Title="Home" IconImageSource="ic_ball.png" />
+    <views:History Title="History" IconImageSource="ic_latest.png" />
+    <views:Setting Title="Account" IconImageSource="ic_user.png" />
+</page:BottomBarPage>

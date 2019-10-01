@@ -21,15 +21,15 @@ namespace SoccerBetting.iOS.CustomRenderer
 
             if (Control != null)
             {
-                //Control.Layer.CornerRadius = 10;
-                Control.Layer.BorderWidth = 5.0f;
-                Control.Layer.BorderColor = Color.Transparent.ToCGColor();
-                //Control.Layer.BackgroundColor = Color.Transparent.ToCGColor();
+                var element = this.Element as CustomPicker;
+                Control.Layer.CornerRadius = (float)element.BorderRadius;
+                Control.Layer.BorderWidth = (float)element.BorderWidth;
+                Control.Layer.BorderColor = element.BorderColor.ToCGColor();
+                Control.Layer.BackgroundColor = element.BgColor.ToCGColor();
+                Control.Layer.MasksToBounds = true;
 
-                Control.BorderStyle = UITextBorderStyle.None;
-
-                //Control.LeftView = new UIView(new CGRect(0, 0, 10, 0));
-                //Control.LeftViewMode = UITextFieldViewMode.Always;
+                Control.LeftView = new UIView(new CGRect(0, 0, 10, 0));
+                Control.LeftViewMode = UITextFieldViewMode.Always;
             }
         }
     }

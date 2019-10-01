@@ -24,6 +24,14 @@ namespace SoccerBetting.Models
                 return this.PlayDate.DayOfWeek.ToString() + ", "+ this.PlayDate.ToString("dd/MM/yyyy");
             }
         }
+
+        public int CountItem
+        {
+            get
+            {
+                return this.Matchs.Count;
+            }
+        }
         #endregion
 
     }

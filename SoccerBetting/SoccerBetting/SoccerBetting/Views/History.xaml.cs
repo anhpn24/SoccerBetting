@@ -1,4 +1,6 @@
-﻿using SoccerBetting.Models;
+﻿using SoccerBetting.Interface;
+using SoccerBetting.Models;
+using SoccerBetting.Resources;
 using SoccerBetting.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,34 +15,30 @@ namespace SoccerBetting.Views
 {
     public partial class History : BaseContentPage<HistoryViewModel>
     {
+        ViewCell lastCell;
+
         public History()
         {
             InitializeComponent();
+            this.stLayout.Margin = new Thickness(15, 10, 15, 10);
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                var isIphoneXDevice = DependencyService.Get<DeviceInfo>().IsIphoneXDevice();
+                if (isIphoneXDevice)
+                {
+                    this.stLayout.Margin = new Thickness(15, 45, 15, 10);
+                }
+            }
         }
 
         async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            string action = await DisplayActionSheet("ActionSheet: Send to?", "Cancel", null, "All", "Match Played", "Match not play");
+            string action = await DisplayActionSheet("ActionSheet: Send to?", "Cancel", null, AppResources.lblAll, AppResources.lblPlayed, AppResources.lblNotPlay);
         }
 
-        async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void ListHistory_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem != null)
-            {
-                var itemData = e.SelectedItem as MatchHistory;
 
-                if (itemData.Status == (int)StatusMatchEnum.Finished)
-                {
-                    await DisplayAlert("Alert", "Match Finished. You not continue betting", "OK");
-                }
-                else
-                {
-                    await Navigation.PushAsync(new DetailMatch()
-                    {
-                        BindingContext = e.SelectedItem as MatchHistory
-                    });
-                }                
-            }
         }
     }
 }

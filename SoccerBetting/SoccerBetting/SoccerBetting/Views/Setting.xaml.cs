@@ -1,4 +1,5 @@
-﻿using SoccerBetting.ViewModels;
+﻿using SoccerBetting.Interface;
+using SoccerBetting.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,15 @@ namespace SoccerBetting.Views
         public Setting()
         {
             InitializeComponent();
+            this.stLayout.Margin = new Thickness(15, 10, 15, 10);
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                var isIphoneXDevice = DependencyService.Get<DeviceInfo>().IsIphoneXDevice();
+                if (isIphoneXDevice)
+                {
+                    this.stLayout.Margin = new Thickness(15, 45, 15, 10);
+                }
+            }
         }
 
         async void Button_Clicked(object sender, EventArgs e)

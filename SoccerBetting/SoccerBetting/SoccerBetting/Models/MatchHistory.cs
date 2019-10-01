@@ -168,11 +168,11 @@ namespace SoccerBetting.Models
 
                 if (TypeGuess == 0)
                 {
-                    return Team1.Name + " win";
+                    return Team1.ShortName + " win";
                 }
                 else if (TypeGuess == 2)
                 {
-                    return Team2.Name + " win";
+                    return Team2.ShortName + " win";
                 }
                 else
                 {

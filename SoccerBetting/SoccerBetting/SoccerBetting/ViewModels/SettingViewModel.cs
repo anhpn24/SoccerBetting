@@ -18,7 +18,7 @@ namespace SoccerBetting.ViewModels
                 Email = "micheljohn@csa.com.us",
                 LastLogin = DateTime.Now,
                 Point = 100,
-                Image = "paw.png",
+                Image = "ic_user.png",
                 AllowBetting = true
             };            
         }

@@ -17,7 +17,7 @@ namespace SoccerBetting.ViewModels
         public void setData()
         {
             historyMatch = new List<MatchHistory>();
-            var team1 = new Team { Id = 1, ShortName = "GER", Name = "Germany", Image = "ger.png" };
+            var team1 = new Team { Id = 1, ShortName = "GER", Name = "Germany & England Scottlen", Image = "ger.png" };
             var team2 = new Team { Id = 2, ShortName = "FRA", Name = "France", Image = "fra.png" };
 
             var historyItem = new MatchHistory { PlayDate = DateTime.Now, Team1 = team1, Team2 = team2, Stadium = "Emirates", Channel="ic_kplus.png", StartTime= TimeSpan.Parse("07:00"), Status=(int)StatusMatchEnum.Finished, TypeGuess=(int)TypeGuessEnum.Team1Win, BetPoint=60, ScoreTeam1=5, ScoreTeam2=1 };

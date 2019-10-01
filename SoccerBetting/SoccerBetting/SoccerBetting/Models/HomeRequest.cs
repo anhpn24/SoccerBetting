@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SoccerBetting.Models
 {
-    class LatestRequest
+    class HomeRequest
     {
     }
 }

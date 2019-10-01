@@ -35,6 +35,13 @@ namespace SoccerBetting.iOS.CustomRenderer
                 Path = UIBezierPath.FromRoundedRect(Bounds, uIRectCorner, new CGSize(radius, radius)).CGPath
             };
             Layer.Mask = maskingShapeLayer;
+
+            if (Element.BorderWidth > 0)
+            {
+                Layer.BorderWidth = Element.BorderWidth;
+                Element.Padding = new Thickness(Element.BorderWidth);
+                Layer.BorderColor = Element.BorderColor.ToCGColor();
+            }                            
         }
     }
 }

@@ -1,3 +1,5 @@
+using Plugin.Multilingual;
+using SoccerBetting.Resources;
 using SoccerBetting.Views;
 using System;
 using Xamarin.Forms;
@@ -11,6 +13,7 @@ namespace SoccerBetting
         {
             InitializeComponent();
 
+            AppResources.Culture = CrossMultilingual.Current.DeviceCultureInfo;
             MainPage = new NavigationPage(new Login());
         }
 

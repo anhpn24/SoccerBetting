@@ -81,6 +81,43 @@ namespace SoccerBetting.Controls
                 SetValue(BottomRightProperty, value);
             }
         }
+
+        // BorderColor
+        public static readonly BindableProperty BorderColorProperty = 
+            BindableProperty.Create("BorderColor", typeof(Color), typeof(Color), Color.Transparent);
+        public Color BorderColor
+        {
+            get { return (Color)GetValue(BorderColorProperty); }
+            set { SetValue(BorderColorProperty, value); }
+        }
+
+        // BorderWidth
+        public static readonly BindableProperty BorderWidthProperty = 
+            BindableProperty.Create("BorderWidth", typeof(float), typeof(float), (float)0);
+        public float BorderWidth
+        {
+            get
+            {          
+                if (Device.RuntimePlatform == Device.iOS)
+                {
+                    var borderWidth = (float)GetValue(BorderWidthProperty) - 3;
+                    if (borderWidth > 0)
+                    {
+                        return borderWidth;
+                    }
+                    else
+                    {
+                        return 0;
+                    }                    
+                }
+
+                return (float)GetValue(BorderWidthProperty);
+            }
+            set
+            {
+                SetValue(BorderWidthProperty, value);
+            }
+        }
     }
 }
 

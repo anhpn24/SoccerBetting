@@ -29,14 +29,15 @@ namespace SoccerBetting.Droid.CustomRenderer
 
             if (Control != null)
             {
+                var element = this.Element as CustomPicker;
                 var gradientDrawable = new GradientDrawable();
-                //gradientDrawable.SetCornerRadius(60f);
-                gradientDrawable.SetStroke(5, Color.Transparent.ToAndroid());
-                //gradientDrawable.SetColor(Color.LightGray.ToAndroid());
+                gradientDrawable.SetCornerRadius((float)element.BorderRadius);
+                gradientDrawable.SetStroke((int)element.BorderWidth, ((Color)element.BorderColor).ToAndroid());
+                gradientDrawable.SetColor(((Color)element.BgColor).ToAndroid());
 
                 Control.SetBackground(gradientDrawable);
 
-                //Control.SetPadding(50, Control.PaddingTop, Control.PaddingRight, Control.PaddingBottom);
+                Control.SetPadding(50, Control.PaddingTop, Control.PaddingRight, Control.PaddingBottom);
             }
         }
     }

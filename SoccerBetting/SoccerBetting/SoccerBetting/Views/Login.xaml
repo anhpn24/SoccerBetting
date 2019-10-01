@@ -9,6 +9,7 @@
              xmlns:viewModel="clr-namespace:SoccerBetting.ViewModels" 
              x:TypeArguments="viewModel:LoginViewModel"
              xmlns:local="clr-namespace:SoccerBetting.Controls"
+             xmlns:i18n="clr-namespace:SoccerBetting.Helpers"
              NavigationPage.HasNavigationBar="False"             
              BackgroundColor="#5c5976">
     <ContentPage.Resources>
@@ -36,7 +37,7 @@
                                       Padding="10,0,10,0"                                      
                                       RoundedCornerRadius="20">
                 <Image Source="user.png" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0"/>
-                <local:CustomEntry Placeholder="Username" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15" />
+                <local:CustomEntry Style="{StaticResource FontBasicEntry}" Placeholder="{i18n:Translate plcholderUser}" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15" />
             </local:RoundedStackLayout>
 
             <local:RoundedStackLayout Orientation="Horizontal" 
@@ -46,19 +47,19 @@
                                       Padding="10,0,10,0"
                                       RoundedCornerRadius="20">
                 <Image Source="pwd.png" HeightRequest="25" WidthRequest="25" Margin="0,0,5,0"/>
-                <local:CustomEntry Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15"/>
+                <local:CustomEntry Style="{StaticResource FontBasicEntry}" Placeholder="{i18n:Translate plcholderPwd}" IsPassword="True" HorizontalOptions="FillAndExpand" Margin="0,2,0,0" FontSize="15"/>
             </local:RoundedStackLayout>
 
-            <Button Text="Login" BackgroundColor="#8786aa" Margin="{StaticResource PageControlBtn}" BorderRadius="20" TextColor="White" Clicked="Button_Clicked" />
+            <Button Text="{i18n:Translate btnLogin}" Style="{StaticResource FontBasicBtn}" BackgroundColor="#8786aa" Margin="{StaticResource PageControlBtn}" BorderRadius="20" FontSize="15" TextColor="White" Clicked="Button_Clicked" />
 
             <StackLayout Orientation="Horizontal">
-                <Label Text="Forgot password?" Style="{StaticResource LinkLabel}" HorizontalOptions="EndAndExpand" FontSize="15" TextColor="White">
+                <Label Text="{i18n:Translate lnkForgotPwd}" Style="{StaticResource LinkLabel, FontBasic}" HorizontalOptions="EndAndExpand" FontSize="15" TextColor="White">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGesForgotPwd_Tapped" />
                     </Label.GestureRecognizers>
                 </Label>
                 <Label Text="|" FontAttributes="Bold" TextColor="White" />
-                <Label Text="Sign up" Style="{StaticResource LinkLabel}" HorizontalOptions="StartAndExpand" FontSize="15" TextColor="White">
+                <Label Text="{i18n:Translate lnkSignUp}" Style="{StaticResource LinkLabel, FontBasic}" HorizontalOptions="StartAndExpand" FontSize="15" TextColor="White">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGesRegister_Tapped"/>
                     </Label.GestureRecognizers>

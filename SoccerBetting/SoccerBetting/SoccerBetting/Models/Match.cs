@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SoccerBetting.Models
 {
-    public class Match
+    public class Match : BaseModel
     {
         /// <summary>
         /// Match Id
@@ -76,6 +76,20 @@ namespace SoccerBetting.Models
             }
         }
 
+        public Color DisplayBgColorTime
+        {
+            get
+            {
+                if (IsShowDetail)
+                {
+                    return Color.FromArgb(221, 221, 221);
+                }
+
+                return Color.White;
+
+            }
+        }
+        public bool IsShowDetail { get; set; } = false;
         #endregion
     }
 
