@@ -42,7 +42,7 @@
                                               Margin="15"
                                               BackgroundColor="White">
                         <StackLayout HeightRequest="50" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                            <Label Text="Euro 2020" Style="{StaticResource FontBasicBold}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="Title" VerticalOptions="CenterAndExpand" />
+                            <Label Text="Euro 2020" FontFamily="{StaticResource FontBasicBold}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="Title" VerticalOptions="CenterAndExpand" />
                             <Image Source="img_header.png" HeightRequest="80" WidthRequest="80" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                         <ListView ItemsSource="{Binding response.listOfMatch}" 
@@ -56,7 +56,7 @@
                                 <DataTemplate>
                                     <ViewCell Height="30">
                                         <StackLayout VerticalOptions="FillAndExpand" Padding="5" BackgroundColor="#d9d9d9">
-                                            <Label Style="{StaticResource FontBasic}" Text="{Binding DisplayPlayDate}" FontSize="16" TextColor="Gray" VerticalOptions="Center"/>
+                                            <Label FontFamily="{StaticResource FontBasic}" Text="{Binding DisplayPlayDate}" FontSize="16" TextColor="Gray" VerticalOptions="Center"/>
                                         </StackLayout>
                                     </ViewCell>
                                 </DataTemplate>
@@ -78,7 +78,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
-                                                <Label Style="{StaticResource FontBasicBold}" Text="{Binding Team1.ShortName}" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
+                                                <Label FontFamily="{StaticResource FontBasicBold}" Text="{Binding Team1.ShortName}" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
                                                     <Label.FontSize>
                                                         <OnPlatform x:TypeArguments="x:Double" iOS="16" Android="20"/>
                                                     </Label.FontSize>
@@ -88,13 +88,13 @@
 
                                             <StackLayout Grid.Row="0" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                                                 <local:RoundedStackLayout BorderWidth="5" BorderColor="#ccc" BackgroundColor="{Binding DisplayBgColorTime}">
-                                                    <Label Text="{Binding DisplayTime}" Margin="5,0" Style="{StaticResource FontBasic}" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                    <Label Text="{Binding DisplayTime}" Margin="5,0" FontFamily="{StaticResource FontBasic}" FontSize="Medium" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                                 </local:RoundedStackLayout>
                                             </StackLayout>
 
                                             <StackLayout Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
                                                 <Image Source="{Binding Team2.Image}" HeightRequest="30" WidthRequest="50"/>
-                                                <Label Style="{StaticResource FontBasicBold}" Text="{Binding Team2.ShortName}" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
+                                                <Label FontFamily="{StaticResource FontBasicBold}" Text="{Binding Team2.ShortName}" VerticalOptions="CenterAndExpand" FontAttributes="Bold">
                                                     <Label.FontSize>
                                                         <OnPlatform x:TypeArguments="x:Double" iOS="16" Android="20"/>
                                                     </Label.FontSize>
@@ -106,7 +106,7 @@
                                             </StackLayout>
 
                                             <StackLayout Grid.Row="1" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                                <!--<Label Style="{StaticResource FontBasic}" Text="{Binding Stadium}" FontSize="18" VerticalOptions="CenterAndExpand" />-->
+                                                <!--<Label FontFamily="{StaticResource FontBasic}" Text="{Binding Stadium}" FontSize="18" VerticalOptions="CenterAndExpand" />-->
                                                 <Image Source="{Binding Channel}" HeightRequest="20" WidthRequest="20" VerticalOptions="CenterAndExpand"/>
                                             </StackLayout>
                                         </Grid>
@@ -115,7 +115,7 @@
                             </ListView.ItemTemplate>
                         </ListView>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="30">
-                            <Label Style="{StaticResource FontBasicBold}" Text="More" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                            <Label FontFamily="{StaticResource FontBasicBold}" Text="More" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
                             <Label Text="&#10140;" VerticalOptions="CenterAndExpand" />
                         </StackLayout>
                     </local:RoundedStackLayout>
@@ -126,7 +126,7 @@
                                                 Margin="15"
                                                 BackgroundColor="White">
                         <StackLayout HeightRequest="50" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                            <Label Text="Rank Table" Style="{StaticResource FontBasicBold}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="Title" VerticalOptions="CenterAndExpand" />
+                            <Label Text="Rank Table" FontFamily="{StaticResource FontBasicBold}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="Title" VerticalOptions="CenterAndExpand" />
                             <Image Source="img_header.png" HeightRequest="80" WidthRequest="80" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                         <ListView ItemsSource="{Binding response.listOfTeamRank[0]}" 
@@ -147,11 +147,11 @@
                                         <ColumnDefinition Width="1.5*" />
                                         <ColumnDefinition Width="1.5*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Style="{StaticResource FontBasic}" Text="Pos" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                    <Label Style="{StaticResource FontBasic}" Text="Team" Grid.Column="1" Grid.ColumnSpan="2" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                    <Label Style="{StaticResource FontBasic}" Text="P" Grid.Column="3" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                    <Label Style="{StaticResource FontBasic}" Text="GD" Grid.Column="4" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                    <Label Style="{StaticResource FontBasic}" Text="Pts" Grid.Column="5" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                    <Label FontFamily="{StaticResource FontBasic}" Text="Pos" Grid.Column="0" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                    <Label FontFamily="{StaticResource FontBasic}" Text="Team" Grid.Column="1" Grid.ColumnSpan="2" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                    <Label FontFamily="{StaticResource FontBasic}" Text="P" Grid.Column="3" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                    <Label FontFamily="{StaticResource FontBasic}" Text="GD" Grid.Column="4" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                    <Label FontFamily="{StaticResource FontBasic}" Text="Pts" Grid.Column="5" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
                                 </Grid>
                             </ListView.Header>
                             <ListView.ItemTemplate>
@@ -171,22 +171,22 @@
                                             </Grid.ColumnDefinitions>
 
                                             <StackLayout Grid.Column="0">
-                                                <Label Style="{StaticResource FontBasic}" Text="{Binding Position}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                <Label FontFamily="{StaticResource FontBasic}" Text="{Binding Position}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                             </StackLayout>
                                             <StackLayout Grid.Column="1">
                                                 <Image Source="{Binding Team.Image}" HeightRequest="20" WidthRequest="30" VerticalOptions="CenterAndExpand"/>
                                             </StackLayout>
                                             <StackLayout Grid.Column="2">
-                                                <Label Margin="10,0,0,0" Style="{StaticResource FontBasicBold}" Text="{Binding Team.Name}" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                                                <Label Margin="10,0,0,0" FontFamily="{StaticResource FontBasicBold}" Text="{Binding Team.Name}" VerticalOptions="CenterAndExpand" FontAttributes="Bold"/>
                                             </StackLayout>
                                             <StackLayout Grid.Column="3">
-                                                <Label Style="{StaticResource FontBasic}" Text="{Binding MatchKicked}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                <Label FontFamily="{StaticResource FontBasic}" Text="{Binding MatchKicked}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                             </StackLayout>
                                             <StackLayout Grid.Column="4">
-                                                <Label Style="{StaticResource FontBasic}" Text="{Binding WLIndex}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                <Label FontFamily="{StaticResource FontBasic}" Text="{Binding WLIndex}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                             </StackLayout>
                                             <StackLayout Grid.Column="5">
-                                                <Label Style="{StaticResource FontBasicBold}" Text="{Binding Point}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                                                <Label FontFamily="{StaticResource FontBasicBold}" Text="{Binding Point}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
                                             </StackLayout>
                                         </Grid>
                                     </ViewCell>
@@ -194,7 +194,7 @@
                             </ListView.ItemTemplate>
                         </ListView>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="40">
-                            <Label Style="{StaticResource FontBasicBold}" Text="Full League" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                            <Label FontFamily="{StaticResource FontBasicBold}" Text="Full League" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
                             <Label Text="&#10140;" VerticalOptions="CenterAndExpand" />
                         </StackLayout>
                     </local:RoundedStackLayout>
@@ -205,7 +205,7 @@
                                                 Margin="15"                                                
                                                 BackgroundColor="White">
                         <StackLayout HeightRequest="50" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                            <Label Text="Latest News" Style="{StaticResource FontBasicBold}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="Title" VerticalOptions="CenterAndExpand" />
+                            <Label Text="Latest News" FontFamily="{StaticResource FontBasicBold}" FontAttributes="Bold" HorizontalOptions="StartAndExpand" FontSize="Title" VerticalOptions="CenterAndExpand" />
                         </StackLayout>
                         <BoxView HeightRequest="1" BackgroundColor="#ddd"></BoxView>
                         <ListView ItemsSource="{Binding response.listNew}"
@@ -226,13 +226,15 @@
                                             <StackLayout Padding="10" Spacing="5">
                                                 <Label Text="{Binding Title}"
                                                        TextColor="#3498db"
-                                                       Style="{StaticResource ListItemTextStyle, FontBasic}"
+                                                       FontFamily="{StaticResource FontBasic}"
+                                                       Style="{DynamicResource ListItemTextStyle}"
                                                        FontSize="17"
                                                        LineBreakMode="TailTruncation"
                                                        MaxLines="2"/>
                                                 <Label Text="{Binding CreatedDate}" 
                                                        FontSize="13"
-                                                       Style="{DynamicResource ListItemDetailTextStyle, FontBasic}"/>
+                                                       FontFamily="{StaticResource FontBasic}"
+                                                       Style="{DynamicResource ListItemDetailTextStyle}"/>
                                             </StackLayout>
                                         </StackLayout>
                                     </ViewCell>
@@ -241,7 +243,7 @@
                         </ListView>
                         <BoxView HeightRequest="1" BackgroundColor="#ddd"></BoxView>
                         <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="40">
-                            <Label Style="{StaticResource FontBasicBold}" Text="More" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
+                            <Label FontFamily="{StaticResource FontBasicBold}" Text="More" FontSize="Medium" VerticalOptions="CenterAndExpand"/>
                             <Label Text="&#10140;" VerticalOptions="CenterAndExpand" />
                         </StackLayout>
                     </local:RoundedStackLayout>

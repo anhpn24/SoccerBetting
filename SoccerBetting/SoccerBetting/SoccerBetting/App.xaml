@@ -14,51 +14,16 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
-        <Style x:Key="FontBasic" TargetType="Label">
-            <Setter Property="FontFamily">
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS">Montserrat-Regular</On>
-                    <On Platform="Android">Montserrat-Regular.ttf#Montserrat-Regular</On>
-                </OnPlatform>
-            </Setter>
-        </Style>
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontBasic">
+            <On Platform="iOS">Montserrat-Regular</On>
+            <On Platform="Android">Montserrat-Regular.ttf#Montserrat-Regular</On>
+        </OnPlatform>
 
-        <Style x:Key="FontBasicBold" TargetType="Label">
-            <Setter Property="FontFamily">
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS">Montserrat-Bold</On>
-                    <On Platform="Android">Montserrat-Bold.ttf#Montserrat-Bold</On>
-                </OnPlatform>
-            </Setter>
-        </Style>
+        <OnPlatform x:TypeArguments="x:String" x:Key="FontBasicBold">
+            <On Platform="iOS">Montserrat-Bold</On>
+            <On Platform="Android">Montserrat-Bold.ttf#Montserrat-Bold</On>
+        </OnPlatform>
 
-        <Style x:Key="FontBasicBtn" TargetType="Button">
-            <Setter Property="FontFamily">
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS">Montserrat-Regular</On>
-                    <On Platform="Android">Montserrat-Regular.ttf#Montserrat-Regular</On>
-                </OnPlatform>
-            </Setter>
-        </Style>
-
-        <Style x:Key="FontBasicEntry" TargetType="Entry">
-            <Setter Property="FontFamily">
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS">Montserrat-Regular</On>
-                    <On Platform="Android">Montserrat-Regular.ttf#Montserrat-Regular</On>
-                </OnPlatform>
-            </Setter>
-        </Style>
-
-        <Style x:Key="FontBasicPicker" TargetType="Picker">
-            <Setter Property="FontFamily">
-                <OnPlatform x:TypeArguments="x:String">
-                    <On Platform="iOS">Montserrat-Regular</On>
-                    <On Platform="Android">Montserrat-Regular.ttf#Montserrat-Regular</On>
-                </OnPlatform>
-            </Setter>
-        </Style>
-        
         <DataTemplate x:Key="CellTemplate">
             <ViewCell>
                 <Grid Padding="10">
