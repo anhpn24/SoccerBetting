@@ -71,6 +71,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomRenderer\CustomPickerRenderer.cs" />
+    <Compile Include="CustomRenderer\CustomTabbedPageRenderer.cs" />
     <Compile Include="CustomRenderer\RoundedCornerViewRenderer.cs" />
     <Compile Include="CustomRenderer\RoundedEntryRenderer.cs" />
     <Compile Include="CustomRenderer\CustomEntryRenderer.cs" />

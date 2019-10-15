@@ -1,4 +1,5 @@
 ﻿using BottomBar.XamarinForms;
+using SoccerBetting.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using Xamarin.Forms.Xaml;
 
 namespace SoccerBetting.Views
 {
-    public partial class MasterPage : BottomBarPage
+    public partial class MasterPage : CustomTabbedPage
     {
         public MasterPage()
         {
