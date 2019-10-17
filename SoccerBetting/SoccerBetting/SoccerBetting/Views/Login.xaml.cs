@@ -22,7 +22,7 @@ namespace SoccerBetting.Views
             var isAuthenticated = true;
             if (isAuthenticated)
             {
-                await Navigation.PushAsync(new MasterPage());                
+                await Navigation.PushAsync(new MasterPage());
             }            
         }
 

@@ -31,6 +31,26 @@ namespace SoccerBetting.Droid.CustomRenderer
         int lastItemId = -1;
         readonly string fontResource = "Montserrat-Regular.ttf";
 
+        protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.TabbedPage> e)
+        {
+            base.OnElementChanged(e);
+
+            if (!(GetChildAt(0) is ViewGroup layout))
+                return;
+
+            if (!(layout.GetChildAt(1) is BottomNavigationView bottomNavigationView))
+                return;
+
+            var topShadow = LayoutInflater.From(Context).Inflate(Resource.Layout.view_shadow, null);
+
+            var layoutParams =
+                new Android.Widget.RelativeLayout.LayoutParams(LayoutParams.MatchParent, 15);
+            layoutParams.AddRule(LayoutRules.Above, bottomNavigationView.Id);
+
+            layout.AddView(topShadow, 2, layoutParams);
+
+        }
+
         public CustomTabbedPageRenderer(Context context) : base(context)
         {
         }

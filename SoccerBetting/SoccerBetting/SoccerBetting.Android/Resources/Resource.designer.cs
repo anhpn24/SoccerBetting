@@ -12005,19 +12005,22 @@ namespace SoccerBetting.Droid
 			public const int setting_bg = 2131165539;
 			
 			// aapt resource value: 0x7F070164
-			public const int title_bg = 2131165540;
+			public const int shadow = 2131165540;
 			
 			// aapt resource value: 0x7F070165
-			public const int tooltip_frame_dark = 2131165541;
+			public const int title_bg = 2131165541;
 			
 			// aapt resource value: 0x7F070166
-			public const int tooltip_frame_light = 2131165542;
+			public const int tooltip_frame_dark = 2131165542;
 			
 			// aapt resource value: 0x7F070167
-			public const int Up = 2131165543;
+			public const int tooltip_frame_light = 2131165543;
 			
 			// aapt resource value: 0x7F070168
-			public const int user = 2131165544;
+			public const int Up = 2131165544;
+			
+			// aapt resource value: 0x7F070169
+			public const int user = 2131165545;
 			
 			static Drawable()
 			{
@@ -13240,6 +13243,9 @@ namespace SoccerBetting.Droid
 			
 			// aapt resource value: 0x7F0B005B
 			public const int vertical_viewpager = 2131427419;
+			
+			// aapt resource value: 0x7F0B005C
+			public const int view_shadow = 2131427420;
 			
 			static Layout()
 			{
