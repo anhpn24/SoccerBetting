@@ -11,10 +11,13 @@
              android:TabbedPage.ToolbarPlacement="Bottom"  
              android:TabbedPage.BarItemColor="Gray"
              android:TabbedPage.BarSelectedItemColor="#0076fc" 
-             BackgroundColor="#fafafa"                           
+             BackgroundColor="#fafafa"   
+             FontFamily="Montserrat-Regular"
              NavigationPage.HasNavigationBar="False"                           
              CurrentPageChanged="BottomBarPage_CurrentPageChanged">
-    <views:Home Title="Home" IconImageSource="ic_ball.png" />
-    <views:History Title="History" IconImageSource="ic_latest.png" />
-    <views:Setting Title="Account" IconImageSource="ic_user.png" />
+    <page:CustomTabbedPage.Children>
+        <views:Home Title="Home" IconImageSource="ic_ball.png" />
+        <views:History Title="History" IconImageSource="ic_latest.png" />
+        <views:Setting Title="Account" IconImageSource="ic_user.png" />
+    </page:CustomTabbedPage.Children>
 </page:CustomTabbedPage>

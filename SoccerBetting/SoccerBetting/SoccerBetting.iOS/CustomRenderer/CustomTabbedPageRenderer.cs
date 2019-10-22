@@ -17,11 +17,14 @@ namespace SoccerBetting.iOS.CustomRenderer
     public class CustomTabbedPageRenderer : TabbedRenderer
     {
         UITabBarController tabbedController;
-        readonly string fontName = "Montserrat-Regular";
+        string fontFamily = string.Empty;
 
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e);
+
+            var tabs = Element as CustomTabbedPage;
+            fontFamily = tabs.FontFamily;
 
             if (e.NewElement != null)
             {
@@ -40,7 +43,7 @@ namespace SoccerBetting.iOS.CustomRenderer
             {
                 for (int i = 0; i < TabBar.Items.Length; i++)
                 {
-                    UpdateTabBarItem(TabBar.Items[i], tabs.Children[i].Icon);
+                    UpdateTabBarItem(TabBar.Items[i], tabs.Children[i].IconImageSource.ToString());
                 }
                 AddFonts();
                 AddSelectedTabIndicator();
@@ -68,19 +71,18 @@ namespace SoccerBetting.iOS.CustomRenderer
             }
         }
 
-        #region Function
         void AddFonts()
         {
             UITabBarItem.Appearance.SetTitleTextAttributes(new UITextAttributes
             {
                 TextColor = Color.FromHex("#757575").ToUIColor(),
-                Font = UIFont.FromName(fontName, 12)
+                Font = UIFont.FromName(fontFamily, 12)
             }, UIControlState.Normal);
 
             UITabBarItem.Appearance.SetTitleTextAttributes(new UITextAttributes
             {
                 TextColor = Color.FromHex("#3C9BDF").ToUIColor(),
-                Font = UIFont.FromName(fontName, 12)
+                Font = UIFont.FromName(fontFamily, 12)
             }, UIControlState.Selected);
 
         }
@@ -90,12 +92,11 @@ namespace SoccerBetting.iOS.CustomRenderer
             if (item == null || icon == null)
                 return;
 
-            // Set the font for the title.
             // item.ImageInsets = new UIEdgeInsets(5, 0, 0, 0);
             item.TitlePositionAdjustment = new UIOffset(0, 5);
-            item.SetTitleTextAttributes(new UITextAttributes() { Font = UIFont.FromName(fontName, 12), TextColor = Color.FromHex("#757575").ToUIColor() }, UIControlState.Normal);
-            item.SetTitleTextAttributes(new UITextAttributes() { Font = UIFont.FromName(fontName, 12), TextColor = Color.FromHex("#3C9BDF").ToUIColor() }, UIControlState.Selected);
-
+            // Set the font for the title.
+            item.SetTitleTextAttributes(new UITextAttributes() { Font = UIFont.FromName(fontFamily, 12), TextColor = Color.FromHex("#757575").ToUIColor() }, UIControlState.Normal);
+            item.SetTitleTextAttributes(new UITextAttributes() { Font = UIFont.FromName(fontFamily, 12), TextColor = Color.FromHex("#3C9BDF").ToUIColor() }, UIControlState.Selected);
         }
 
         protected override Task<Tuple<UIImage, UIImage>> GetIcon(Page page)
@@ -119,6 +120,7 @@ namespace SoccerBetting.iOS.CustomRenderer
             //{
             //    UITabBar.Appearance.SelectionIndicatorImage = GetImageWithColorPosition(Color.DarkGray.ToUIColor(), new CGSize(UIScreen.MainScreen.Bounds.Width / base.ViewControllers.Length, tabbedController.TabBar.Bounds.Size.Height + 4), new CGSize(UIScreen.MainScreen.Bounds.Width / base.ViewControllers.Length, 4));
             //}
+
         }
 
         UIImage GetImageWithColorPosition(UIColor color, CGSize size, CGSize lineSize)
@@ -135,6 +137,5 @@ namespace SoccerBetting.iOS.CustomRenderer
             return img;
 
         }
-        #endregion
     }
 }

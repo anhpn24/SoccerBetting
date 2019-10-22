@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -28,8 +29,12 @@ namespace SoccerBetting.Droid.CustomRenderer
         BottomNavigationView bottomNavigationView;
         Android.Views.IMenuItem lastItemSelected;
         private bool firstTime = true;
-        int lastItemId = -1;
-        readonly string fontResource = "Montserrat-Regular.ttf";
+        int lastItemId=-1;
+        string fontFamily = string.Empty;
+
+        public CustomTabbedPageRenderer(Context context) : base(context)
+        {
+        }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.TabbedPage> e)
         {
@@ -38,54 +43,78 @@ namespace SoccerBetting.Droid.CustomRenderer
             if (!(GetChildAt(0) is ViewGroup layout))
                 return;
 
-            if (!(layout.GetChildAt(1) is BottomNavigationView bottomNavigationView))
+            if (!(layout.GetChildAt(1) is BottomNavigationView bottomNavView))
                 return;
 
-            var topShadow = LayoutInflater.From(Context).Inflate(Resource.Layout.view_shadow, null);
+            if (e.NewElement != null)
+            {
+                tabbedPage = e.NewElement as CustomTabbedPage;
+                bottomNavigationView = (GetChildAt(0) as Android.Widget.RelativeLayout).GetChildAt(1) as BottomNavigationView;
+                bottomNavigationView.NavigationItemSelected += BottomNavigationView_NavigationItemSelected;
 
-            var layoutParams =
-                new Android.Widget.RelativeLayout.LayoutParams(LayoutParams.MatchParent, 15);
-            layoutParams.AddRule(LayoutRules.Above, bottomNavigationView.Id);
+                //Call to remove animation
+                SetShiftMode(bottomNavigationView, false, false);
 
-            layout.AddView(topShadow, 2, layoutParams);
+                fontFamily = ((CustomTabbedPage)e.NewElement).FontFamily + ".ttf";
+                //Call to change the font
+                try { ChangeFont(); }
+                catch (Exception) { }
 
+                //Set shadow
+                var topShadow = LayoutInflater.From(Context).Inflate(Resource.Layout.view_shadow, null);
+                var layoutParams = new Android.Widget.RelativeLayout.LayoutParams(LayoutParams.MatchParent, 15);
+                layoutParams.AddRule(LayoutRules.Above, bottomNavView.Id);
+                layout.AddView(topShadow, 2, layoutParams);               
+            }
+
+            if (e.OldElement != null)
+            {
+                bottomNavigationView.NavigationItemSelected -= BottomNavigationView_NavigationItemSelected;
+            }
+
+            for (int i = 0; i < Element.Children.Count; i++)
+            {
+                var item = bottomNavigationView.Menu.GetItem(i);
+                var icon = item.Icon;
+                if (icon != null)
+                {
+                    icon = Android.Support.V4.Graphics.Drawable.DrawableCompat.Wrap(icon);
+                    if (i == 0)
+                    {
+                        icon.SetColorFilter(tabbedPage.SelectedTabColor.ToAndroid(), PorterDuff.Mode.SrcIn);
+                    }
+                    else
+                    {
+                        icon.SetColorFilter(tabbedPage.UnselectedTabColor.ToAndroid(), PorterDuff.Mode.SrcIn);
+                    }
+                }
+            }
         }
 
-        public CustomTabbedPageRenderer(Context context) : base(context)
+        //Change Tab font
+        void ChangeFont()
         {
-        }
-
-        void BottomNavigationView_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
-        {
+            var fontFace = Typeface.CreateFromAsset(Context.Assets, fontFamily);
             var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
-            var normalColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
-            var selectedColor = tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid();
 
-            if (lastItemSelected != null)
+            for (int i = 0; i < bottomNavMenuView.ChildCount; i++)
             {
-                lastItemSelected.Icon.SetColorFilter(normalColor, PorterDuff.Mode.SrcIn);
+                var item = bottomNavMenuView.GetChildAt(i) as BottomNavigationItemView;
+                var itemTitle = item.GetChildAt(1);
 
+                var smallTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(0));
+                var largeTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(1));
+
+                lastItemId = bottomNavMenuView.SelectedItemId;
+             
+                smallTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
+                largeTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
+
+                //Set text color
+                var textColor = (item.Id == bottomNavMenuView.SelectedItemId) ? tabbedPage.SelectedTabColor.ToAndroid() : tabbedPage.UnselectedTabColor.ToAndroid();
+                smallTextView.SetTextColor(textColor);
+                largeTextView.SetTextColor(textColor);
             }
-
-            if ($"{e.Item}" != "App")
-            {
-                e.Item.Icon.SetColorFilter(selectedColor, PorterDuff.Mode.SrcIn);
-                lastItemSelected = e.Item;
-            }
-
-            if (lastItemId != -1)
-            {
-                SetTabItemTextColor(bottomNavMenuView.GetChildAt(lastItemId) as BottomNavigationItemView, normalColor);
-            }
-
-            SetTabItemTextColor(bottomNavMenuView.GetChildAt(e.Item.ItemId) as BottomNavigationItemView, selectedColor);
-
-
-            SetupBottomNavigationView(e.Item);
-            this.OnNavigationItemSelected(e.Item);
-
-            lastItemId = e.Item.ItemId;
-
         }
 
         //Remove tint color
@@ -102,7 +131,7 @@ namespace SoccerBetting.Droid.CustomRenderer
             {
                 for (int i = 0; i < Element.Children.Count; i++)
                 {
-                    var item = bottomNavigationView.Menu.GetItem(i);
+                    var item = bottomNavigationView.Menu.GetItem(i);                    
                     if (bottomNavigationView.SelectedItemId == item.ItemId)
                     {
                         SetupBottomNavigationView(item);
@@ -112,35 +141,55 @@ namespace SoccerBetting.Droid.CustomRenderer
                 firstTime = false;
             }
 
-        }
+        }        
 
-        #region Function
-        //Change Tab font
-        void ChangeFont()
+        void BottomNavigationView_NavigationItemSelected(object sender, BottomNavigationView.NavigationItemSelectedEventArgs e)
         {
-            var fontFace = Typeface.CreateFromAsset(Context.Assets, fontResource);
             var bottomNavMenuView = bottomNavigationView.GetChildAt(0) as BottomNavigationMenuView;
+            var normalColor = tabbedPage.UnselectedTabColor.ToAndroid();
+            var selectedColor = tabbedPage.SelectedTabColor.ToAndroid();
 
-            for (int i = 0; i < bottomNavMenuView.ChildCount; i++)
+            if (lastItemSelected != null)
             {
-                var item = bottomNavMenuView.GetChildAt(i) as BottomNavigationItemView;
-                var itemTitle = item.GetChildAt(1);
-
-                var smallTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(0));
-                var largeTextView = ((TextView)((BaselineLayout)itemTitle).GetChildAt(1));
-
-                lastItemId = bottomNavMenuView.SelectedItemId;
-
-                smallTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
-                largeTextView.SetTypeface(fontFace, TypefaceStyle.Bold);
-
-                //Set text color
-                var textColor = (item.Id == bottomNavMenuView.SelectedItemId) ? tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarSelectedItemColor().ToAndroid() : tabbedPage.On<Xamarin.Forms.PlatformConfiguration.Android>().GetBarItemColor().ToAndroid();
-                smallTextView.SetTextColor(textColor);
-                largeTextView.SetTextColor(textColor);
+                lastItemSelected.Icon.SetColorFilter(normalColor, PorterDuff.Mode.SrcIn);
             }
+
+            if ($"{e.Item}" != "Home")
+            {
+                e.Item.Icon.SetColorFilter(selectedColor, PorterDuff.Mode.SrcIn);
+
+                var icon = bottomNavigationView.Menu.GetItem(0).Icon;
+                if (icon != null)
+                {
+                    icon = Android.Support.V4.Graphics.Drawable.DrawableCompat.Wrap(icon);
+                    icon.SetColorFilter(tabbedPage.UnselectedTabColor.ToAndroid(), PorterDuff.Mode.SrcIn);
+                }
+
+                lastItemSelected = e.Item;
+            }
+            else
+            {
+                var icon = bottomNavigationView.Menu.GetItem(0).Icon;
+                if (icon != null)
+                {
+                    icon = Android.Support.V4.Graphics.Drawable.DrawableCompat.Wrap(icon);
+                    icon.SetColorFilter(tabbedPage.SelectedTabColor.ToAndroid(), PorterDuff.Mode.SrcIn);
+                }
+            }
+
+            if(lastItemId!=-1)
+            {
+                SetTabItemTextColor(bottomNavMenuView.GetChildAt(lastItemId) as BottomNavigationItemView, normalColor);
+            }
+
+            SetTabItemTextColor(bottomNavMenuView.GetChildAt(e.Item.ItemId) as BottomNavigationItemView, selectedColor);
+           
+            SetupBottomNavigationView(e.Item);
+            this.OnNavigationItemSelected(e.Item);
+
+            lastItemId = e.Item.ItemId;
         }
-                
+
         void SetTabItemTextColor(BottomNavigationItemView bottomNavigationItemView, Android.Graphics.Color textColor)
         {
             var itemTitle = bottomNavigationItemView.GetChildAt(1);
@@ -169,7 +218,7 @@ namespace SoccerBetting.Droid.CustomRenderer
 
             //bottomNavigationView.SetBackground(layerDrawable);
         }
-
+       
         //Remove animation
         public void SetShiftMode(BottomNavigationView bottomNavigationView, bool enableShiftMode, bool enableItemShiftMode)
         {
@@ -201,6 +250,5 @@ namespace SoccerBetting.Droid.CustomRenderer
                 System.Diagnostics.Debug.WriteLine($"Unable to set shift mode: {ex}");
             }
         }
-        #endregion
     }
 }
